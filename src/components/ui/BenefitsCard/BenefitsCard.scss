@@ -1,0 +1,74 @@
+.benefits-card {
+	background-image: url('../../../assets//ben-card.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 48px;
+	width: 607px;
+	height: 308px;
+	position: relative;
+
+	&-icon {
+		position: absolute;
+		top: 1%;
+		right: 8%;
+	}
+
+	&-title {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 120%;
+	}
+
+	&-text {
+		color: #fff;
+		text-align: center;
+
+		/* H2 */
+		font-family: Whyte Inktrap;
+		font-size: 28px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 110%;
+	}
+
+	&-type {
+		color: #020011;
+		font-size: 16px;
+		font-weight: 600;
+		position: absolute;
+		bottom: 0;
+		left: 5%;
+	}
+
+	&-block {
+		position: relative;
+		padding: 20px;
+		margin-top: 32px;
+
+		&-icon {
+			&-tl {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			&-tr {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+			&-br {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
+			&-bl {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+		}
+	}
+}

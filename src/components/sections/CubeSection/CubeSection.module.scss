@@ -1,0 +1,71 @@
+.section {
+  position: relative;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 223px;
+  padding-bottom: 66px;
+
+  &Bitcoin {
+    position: absolute;
+    top: 40%;
+    
+  }
+}
+
+.title {
+  text-align: center;
+
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &Block {
+   max-width: 324px;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 24px;
+  row-gap: 14px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.description {
+  color: #020011;
+  font-family: "Whyte Inktrap";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+
+.cube {
+  position: absolute;
+  left: auto;
+  right: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}

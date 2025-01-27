@@ -1,0 +1,29 @@
+.btn {
+  border: none;
+  border-radius: 16px 8px;
+  color: #fff;
+  font-size: 16px;
+  padding: 15px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--primary {
+    background-color: #ee4503;
+
+    &:hover {
+      background-color: #020011;
+    }
+  }
+
+  &--secondary {
+    background-color: #020011;
+
+    &:hover {
+      background-color: #ee4503;
+    }
+  }
+}
