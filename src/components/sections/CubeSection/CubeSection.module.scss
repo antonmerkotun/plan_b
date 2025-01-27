@@ -11,12 +11,12 @@
   height: 100%;
   margin: 0 auto;
   padding-top: 223px;
-  padding-bottom: 66px;
 
-  &Bitcoin {
-    position: absolute;
-    top: 40%;
-    
+  &Block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 }
 
@@ -59,13 +59,53 @@
   line-height: 120%;
 }
 
+.splineBlock {
+  width: 100%;
+  height: 0px;
+  //position: absolute;
+}
+
+.bitcoin {
+  position: absolute;
+  top: 30%;
+  z-index: -2;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
 
 .cube {
   position: absolute;
+  top: -40%;
   left: auto;
   right: auto;
-  margin: 0 auto;
+  z-index: 1;
+}
+
+.tab {
+  position: relative;
   display: flex;
   justify-content: center;
-  z-index: 1;
+  align-items: center;
+  font-size: 20px;
+  line-height: 120%;
+  height: 66px;
+  width: 307px;
+  margin: 0 auto;
+
+  &Text {
+    color: #ffffff;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+  }
+
+  &Background{
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    height: 89px;
+  }
 }

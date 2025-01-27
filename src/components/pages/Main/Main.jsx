@@ -4,9 +4,10 @@ import styles from '@/components/pages/Main/Main.module.scss';
 
 const Main = () => {
   return (
-    <main className={`${styles.main} container`}>
+    <main className={`${styles.main}`}>
       <CubeSection />
-      {/*<BenefitsSection />*/}
+      <BenefitsSection />
+      <div style={{ height: '3000px' }}></div>
     </main>
   );
 };
