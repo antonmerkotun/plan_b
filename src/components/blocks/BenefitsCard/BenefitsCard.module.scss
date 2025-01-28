@@ -1,31 +1,31 @@
-.benefits-card {
-	background-image: url('../../../assets//ben-card.svg');
-	background-size: cover;
+.benefitsCard {
+	background-image: url('@/assets/icons/benefits-card.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	padding: 48px;
 	width: 607px;
 	height: 308px;
 	position: relative;
+	transition: background-image 0.3s ease, opacity 0.3s ease;
+	min-width: 607px;
 
-	&-icon {
+
+	&Icon {
 		position: absolute;
 		top: 1%;
 		right: 8%;
 	}
 
-	&-title {
+	&Title {
 		color: rgba(255, 255, 255, 0.7);
 		font-size: 20px;
 		font-weight: 500;
 		line-height: 120%;
 	}
 
-	&-text {
+	&Text {
 		color: #fff;
 		text-align: center;
-
-		/* H2 */
 		font-family: Whyte Inktrap;
 		font-size: 28px;
 		font-style: normal;
@@ -33,7 +33,7 @@
 		line-height: 110%;
 	}
 
-	&-type {
+	&Type {
 		color: #020011;
 		font-size: 16px;
 		font-weight: 600;
@@ -42,33 +42,39 @@
 		left: 5%;
 	}
 
-	&-block {
+	&Block {
 		position: relative;
 		padding: 20px;
 		margin-top: 32px;
 
-		&-icon {
-			&-tl {
+		&Icon {
+			&Tl {
 				position: absolute;
 				top: 0;
 				left: 0;
 			}
 
-			&-tr {
+			&Tr {
 				position: absolute;
 				top: 0;
 				right: 0;
 			}
-			&-br {
+
+			&Br {
 				position: absolute;
 				bottom: 0;
 				right: 0;
 			}
-			&-bl {
+
+			&Bl {
 				position: absolute;
 				bottom: 0;
 				left: 0;
 			}
 		}
+	}
+
+	&Active {
+		background-image: url('@/assets/icons/benefits-card-active.svg');
 	}
 }

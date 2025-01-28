@@ -32,8 +32,16 @@
   align-items: center;
 
   &Block {
-   max-width: 324px;
+   max-width: 27%;
+    padding-right: 16px;
+    padding-left: 48px;
   }
+}
+
+.listBlock {
+  max-width: 27%;
+  padding-right: 48px;
+  padding-left: 16px;
 }
 
 .list {

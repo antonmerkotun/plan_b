@@ -3,26 +3,31 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import styles from '@/components/sections/BenefitsSection/BenefitsSection.module.scss';
+import { SLIDES } from '@/data/benefits.js';
+import BenefitsCard from '@/components/blocks/BenefitsCard/BenefitsCard.jsx';
+import SliderButton from '@/components/ui/SliderButton/SliderButton.jsx';
+import { ReactSVG } from 'react-svg';
+import borderCounter from '@/assets/icons/top-left.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BenefitsSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndexTab, setActiveIndexTab] = useState(0);
+  const [activeIndexCard, setActiveIndexCard] = useState(0);
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
-  const navigationRef = useRef(null);
+  const leftBlockRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     const content = gsap.utils.toArray(contentRef.current.children);
     const cardWidth = content[0].offsetWidth;
-    const windowWidth = window.innerWidth;
     const gap = 56;
-
-    const initialOffset = (windowWidth - cardWidth) / 2;
+    const restCards = content.length - 1;
 
     gsap.set(content, {
-      x: initialOffset,
+      x: 28,
+      opacity: 1,
     });
 
     const trigger = gsap.to(content, {
@@ -32,39 +37,70 @@ const BenefitsSection = () => {
         trigger: section,
         pin: true,
         scrub: 1,
-        start: 'top-=56 top',
+        start: 'top top',
         end: `+=${(cardWidth + gap) * content.length}`,
+        ease: 'power2.out',
+        snap: {
+          duration: 0.1,
+          immediateRender: true,
+          snapTo: (value) => Math.round(value * restCards) / restCards,
+        },
+        onUpdate: ({ progress }) => {
+          const activeIndex = Math.round(progress * restCards);
+          setActiveIndexCard(activeIndex);
+
+          content.forEach((card, index) => {
+            if (index < activeIndex) {
+              gsap.set(card, { autoAlpha: 0, duration: 0 });
+            } else {
+              gsap.set(card, { autoAlpha: 1, duration: 0 });
+            }
+          });
+        },
       },
     });
 
     return () => {
       trigger.kill();
     };
-  }, []);
+  }, [activeIndexTab]);
 
   const handleArrowClick = (direction) => {
     const content = gsap.utils.toArray(contentRef.current.children);
     const cardWidth = content[0].offsetWidth;
-    const gap = 56; // Відстань між картками
+    const leftBlockWidth = leftBlockRef.current.offsetWidth;
 
-    // Розрахунок нового індексу
-    let newIndex = activeIndex + direction;
-    newIndex = Math.max(0, Math.min(newIndex, content.length - 1));
+    const initialOffset =
+      (cardWidth * (content.length - 1)) / (content.length - 1) +
+      leftBlockWidth -
+      110;
 
-    // Оновлення стану
-    setActiveIndex(newIndex);
+    const scrollOffset = direction === 1 ? initialOffset : -initialOffset;
 
-    // Анімація прокрутки
-    const targetX = -(newIndex * (cardWidth + gap));
-    gsap.to(content, {
-      x: targetX,
-      duration: 0.5,
-      ease: 'power2.out',
+    window.scrollBy({
+      top: scrollOffset,
+      behavior: 'smooth',
     });
   };
+
+  const handleTabClick = (index) => {
+    if (activeIndexTab === index) return;
+
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    const content = gsap.utils.toArray(contentRef.current.children);
+
+    gsap.set(content, {
+      x: 28,
+      opacity: 1,
+    });
+
+    setActiveIndexTab(index);
+    // setActiveIndexCard(0);
+  };
+
   return (
-    <section ref={sectionRef} className={styles.section}>
-      <div className={styles.leftBlock}>
+    <section ref={sectionRef} id="benefits-section" className={styles.section}>
+      <div ref={leftBlockRef} className={styles.leftBlock}>
         <div>
           <h1>Benefits, that you’ll have</h1>
           <p>
@@ -72,22 +108,60 @@ const BenefitsSection = () => {
             supports staking, dApps, and fast transactions
           </p>
         </div>
-        <div ref={navigationRef} className={styles.navigation}>
-          <button onClick={() => handleArrowClick(-1)}>&lt;</button>
-          <button onClick={() => handleArrowClick(1)}>&gt;</button>
+        <div className={styles.navigation}>
+          <SliderButton
+            onClick={() => handleArrowClick(-1)}
+            isReverse
+            isDisabled={activeIndexCard === 0}
+          />
+          <SliderButton
+            onClick={() => handleArrowClick(1)}
+            isDisabled={activeIndexCard === 3}
+          />
         </div>
       </div>
-      <div className={styles.cardBlock}>
-        <div ref={contentRef} className={styles.horizontalScroll}>
-          <div className={styles.card} data-index="0">
-            Benefit 1
+
+      <div className={styles.content}>
+        <div className={styles.tabs}>
+          {SLIDES.map((item, index) => (
+            <button
+              key={item.title}
+              className={`${styles.tab} ${activeIndexTab === index ? styles.tabActive : styles.tabDeactivated}`}
+              onClick={() => handleTabClick(index)}
+            >
+              {item.title}
+            </button>
+          ))}
+        </div>
+        <div className={styles.cardBlock}>
+          <div ref={contentRef} className={styles.horizontalScroll}>
+            {SLIDES[activeIndexTab].items.map((card, index) => (
+              <BenefitsCard
+                key={card.name}
+                card={card}
+                isActive={activeIndexCard === index}
+              />
+            ))}
           </div>
-          <div className={styles.card} data-index="1">
-            Benefit 2
-          </div>
-          <div className={styles.card} data-index="2">
-            Benefit 3
-          </div>
+        </div>
+        <div className={styles.counter}>
+          <ReactSVG
+            className={`${styles.counterBorder} ${styles.counterBorderLeftTop}`}
+            src={borderCounter}
+          />
+          <ReactSVG
+            className={`${styles.counterBorder} ${styles.counterBorderLeftBottom}`}
+            src={borderCounter}
+          />
+          <ReactSVG
+            className={`${styles.counterBorder} ${styles.counterBorderRightTop}`}
+            src={borderCounter}
+          />
+          <ReactSVG
+            className={`${styles.counterBorder} ${styles.counterBorderRightBottom}`}
+            src={borderCounter}
+          />
+          <span className={styles.counterNumber}>{activeIndexCard + 1}</span>
         </div>
       </div>
     </section>

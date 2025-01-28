@@ -1,0 +1,28 @@
+.button {
+  width: 64px;
+  height: 64px;
+  border: none;
+  border-radius: 20px 8px;
+  background: #020011;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &Disabled{
+    background: #454545;
+    cursor: initial;
+    pointer-events: none;
+
+    & > div > div > svg > path {
+      fill: #7D7D7D;
+    }
+  }
+}
+
+
+.icon {
+  & > div {
+    display: flex;
+  }
+}

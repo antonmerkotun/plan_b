@@ -15,9 +15,16 @@
 }
 
 .icon {
-	width: 16px;
-	height: 16px;
 	cursor: pointer;
+
+	& > div {
+		display: flex;
+
+		& > svg {
+			width: 16px;
+			height: 16px;
+		}
+	}
 
 	path {
 		transition: fill 0.2s ease-in-out;
@@ -25,5 +32,13 @@
 
 	&:hover path {
 		fill: #ee4503;
+	}
+
+	&Disabled {
+		pointer-events: none;
+
+		& path {
+			fill: #CCCCCC;
+		}
 	}
 }

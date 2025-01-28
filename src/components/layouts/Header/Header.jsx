@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ReactSVG } from 'react-svg';
 
 import Button from '@/components/ui/Button/Button';
-import { MENU } from '@/components/layouts/Header/header.data';
+import { MENU } from '@/data/header.js';
 import chevronDown from '@/assets/icons/chevron-down.svg';
 import logo from '@/assets/icons/logo.svg';
 import styles from '@/components/layouts/Header/Header.module.scss';

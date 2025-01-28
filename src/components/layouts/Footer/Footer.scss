@@ -1,0 +1,111 @@
+.footer {
+	margin-top: auto;
+	background-color: #e5e5e5;
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	padding: 32px 64px 23px 64px;
+	margin-top: 30px;
+
+	&__social {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		gap: 120px;
+	}
+
+	&__navigation {
+		display: flex;
+		justify-content: center;
+		gap: 42px;
+
+		&-name {
+			margin-bottom: 16px;
+			font-size: 18px;
+			color: #020011;
+			line-height: 110%;
+			font-weight: 600;
+		}
+
+		&-list {
+				list-style-type: none;
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+		}
+
+		&-item {
+
+		}
+
+		&-link {
+			text-decoration: none;
+			color: #12120F;
+			font-size: 16px;
+			font-weight: 400;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&__subscribe {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+
+		&-content {
+			&-title {
+				color: #020011;
+				font-size: 16px;
+				font-weight: 600;
+				line-height: 120%;
+				margin-bottom: 8px;
+			}
+
+			&-field {
+				display: flex;
+
+				&-input {
+					padding: 10px;
+					border-radius: 4px 0px 0px 16px;
+					border: none;
+					color: rgba(2, 0, 17, 0.40);
+					font-size: 16px;
+
+					&:focus {
+						outline: solid 1px #ee4503;
+					}
+
+					&::placeholder {
+						color: rgba(2, 0, 17, 0.40);
+						font-family: Chillax-Regular, sans-serif;
+					}
+				}
+			}
+		}
+
+		&-terms {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+
+			&-links {
+				display: flex;
+				gap: 16px;
+				color: #020011;
+				font-size: 16px;
+				
+				& > a {
+					text-decoration: none;
+					color: #020011;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}

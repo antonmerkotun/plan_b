@@ -7,7 +7,7 @@ import styles from '@/components/sections/CubeSection/CubeSection.module.scss';
 
 const CubeSection = () => {
   return (
-    <section className={`${styles.section} container`}>
+    <section id="cube-section" className={`${styles.section}`}>
       <div className={styles.content}>
         <div className={styles.contentBlock}>
           <h3 className={styles.title}>Build. Transact. Scale.</h3>
@@ -21,7 +21,7 @@ const CubeSection = () => {
                 Fastest, most secure Layer 1 blockchain for real-world use
               </p>
             </div>
-            <div>
+            <div className={styles.listBlock}>
               <div className={styles.list}>
                 <div className={styles.item}>
                   <p className="titleS">Potential TVL</p>

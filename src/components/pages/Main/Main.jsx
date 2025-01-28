@@ -7,7 +7,6 @@ const Main = () => {
     <main className={`${styles.main}`}>
       <CubeSection />
       <BenefitsSection />
-      <div style={{ height: '3000px' }}></div>
     </main>
   );
 };
