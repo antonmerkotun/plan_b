@@ -68,9 +68,6 @@
 }
 
 .splineBlock {
-  width: 100%;
-  height: 0px;
-  //position: absolute;
 }
 
 .bitcoin {
@@ -81,6 +78,14 @@
   right: 0;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+
+  & > div {
+    display: flex;
+   padding: 0 48px;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .cube {

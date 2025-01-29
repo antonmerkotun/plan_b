@@ -1,0 +1,131 @@
+.section {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.left {
+	width: 27%;
+	padding: 56px 64px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.title {
+	color: #020011;
+	font-family: "Whyte Inktrap";
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 120%;
+}
+
+.description {
+	color: #12120F;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 120%;
+}
+
+
+.center {
+	position: relative;
+	width: 46%;
+}
+
+.bottle {
+	height: 500px;
+	width: 500px;
+}
+
+.right {
+	width: 27%;
+	padding: 0 64px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.point {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.point:nth-child(1) {
+	top: 153px;
+	left: 20px;
+
+	& > .icon {
+		&::before {
+
+		}
+	}
+}
+
+.point:nth-child(2) {
+	bottom: 211px;
+	left: 59px;
+}
+
+.point:nth-child(3) {
+	bottom: 211px;
+	right: 39px;
+}
+
+.point:nth-child(4) {
+	top: 153px;
+	right: 34px;
+}
+
+
+
+.pointTitle{
+	color: rgba(2, 0, 17, 0.50);
+	font-family: "Whyte Inktrap";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 120%;
+
+	&:hover {
+		cursor: pointer;
+		color: #EE4503;
+	}
+}
+
+.activeTitle {
+	color: #020011;
+}
+
+.pointTitle:hover + .icon {
+		& > div > svg{
+			& > rect:nth-child(1) {
+				fill: #020011;
+			}
+
+			& > rect:nth-child(2) {
+				stroke: #020011;
+			}
+			& > circle{
+				fill: #EE4503
+			}
+		}
+
+}
+
+.activeIcon {
+		& > div > svg > circle{
+			fill: #EE4503
+		}
+}

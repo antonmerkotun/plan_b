@@ -1,7 +1,7 @@
 export const SECTIONS = [
   'cube-section',
   'benefits-section',
-  // 'features',
+  'features-section',
   // 'it-for',
   // 'how-it-works',
 ];

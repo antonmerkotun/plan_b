@@ -1,0 +1,91 @@
+.card {
+	position: relative;
+	width: 100%;
+	height: max-content;
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	opacity: 0.7;
+
+	border-radius: 4px;
+}
+
+.cardActive {
+	opacity: 1;
+	background-color: #ffffff;
+}
+
+.icon {
+	width: 64px;
+	height: 64px;
+	border-radius: 16px 8px;
+	background: #EAEAEA;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	& > div {
+		display: flex;
+	}
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.title {
+	color: #020011;
+	font-family: "Whyte Inktrap";
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 110%;
+}
+
+.description {
+	color: rgba(2, 0, 17, 0.72);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 120%;
+}
+
+.iconBorder {
+	& > div  {
+		display: flex;
+		& > svg > path{
+		stroke: #EE4503;;
+		}
+	}
+}
+
+.iconTl {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.iconTr {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.iconBr {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.iconBl {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.button {
+	height: 40px;
+}

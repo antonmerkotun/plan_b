@@ -51,9 +51,9 @@ const BenefitsSection = () => {
 
           content.forEach((card, index) => {
             if (index < activeIndex) {
-              gsap.set(card, { autoAlpha: 0, duration: 0 });
+              gsap.set(card, { opacity: 0, duration: 1 });
             } else {
-              gsap.set(card, { autoAlpha: 1, duration: 0 });
+              gsap.set(card, { opacity: 1, duration: 1 });
             }
           });
         },
