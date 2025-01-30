@@ -31,7 +31,7 @@
 	position: relative;
 	margin: 0 auto;
 
-	pointer-events: none; //TODO: remove after fix click on tab
+	//pointer-events: none; //TODO: remove after fix click on tab
 
 	&::before {
 		position: absolute;

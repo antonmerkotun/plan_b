@@ -4,12 +4,10 @@ import styles from '@/components/ui/Spline/EnergyLiquid/EnergyLiquid.module.scss
 
 const EnergyLiquid = () => {
   return (
-    <div className={styles.wrapper}>
-      <Spline
-        className={styles.energyLiquid}
-        scene="https://prod.spline.design/Oz8n-SjZNJdpPGNu/scene.splinecode"
-      />
-    </div>
+    <Spline
+      scene="https://prod.spline.design/QcW18L0EiEue9-6U/scene.splinecode"
+      className={styles.spline}
+    />
   );
 };
 

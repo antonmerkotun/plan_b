@@ -38,7 +38,7 @@ const BenefitsSection = () => {
         pin: true,
         scrub: 1,
         start: 'top top',
-        end: `+=${(cardWidth + gap) * content.length}`,
+        end: `+=${(cardWidth + gap) * content.length + 2000}`,
         ease: 'power2.out',
         snap: {
           duration: 0.1,
@@ -85,13 +85,18 @@ const BenefitsSection = () => {
 
   const handleTabClick = (index) => {
     if (activeIndexTab === index) return;
+    //
+    // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    // const content = gsap.utils.toArray(contentRef.current.children);
+    //
+    // gsap.set(content, {
+    //   x: 28,
+    //   opacity: 1,
+    // });
 
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    const content = gsap.utils.toArray(contentRef.current.children);
-
-    gsap.set(content, {
-      x: 28,
-      opacity: 1,
+    window.scrollBy({
+      top: 0,
+      behavior: 'smooth',
     });
 
     setActiveIndexTab(index);

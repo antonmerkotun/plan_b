@@ -23,18 +23,6 @@ const FeaturesSection = () => {
     const cardHeight = cards[0].offsetHeight;
     const gap = 16;
 
-    cards.forEach((card, index) => {
-      ScrollTrigger.create({
-        id: `features-cards`,
-        trigger: card,
-        start: 'top center',
-        end: 'bottom center',
-        scrub: 1,
-        onEnter: () => setActiveIndex(index),
-        onEnterBack: () => setActiveIndex(index),
-      });
-    });
-
     const contentHeight = content.offsetHeight;
 
     const trigger = gsap.timeline({
@@ -43,31 +31,44 @@ const FeaturesSection = () => {
         id: 'features-section',
         trigger: section,
         start: 'top top',
-        end: `+=${(contentHeight - cardHeight - gap * cards.length) * 1.5}`,
+        end: `+=${(contentHeight - cardHeight - gap * cards.length) * 1.5 + 3000}`,
         scrub: true,
         pin: true,
+        anticipatePin: 1,
         onUpdate: (self) => {
-          // const rounded = Math.round(self.progress * 100);
-          // setActiveIndex(0);
-          // if (rounded >= 30) {
-          //   setActiveIndex(1);
-          // }
-          // if (rounded >= 46) {
-          //   setActiveIndex(2);
-          // }
-          // if (rounded >= 60) {
-          //   setActiveIndex(3);
-          // }
+          const progress = self.progress;
+          const rounded = Math.floor(progress * 100);
+
+          console.log(rounded);
+
+          if (rounded >= 0) {
+            setActiveIndex(0);
+          }
+
+          if (rounded >= 30) {
+            setActiveIndex(1);
+          }
+
+          if (rounded >= 45) {
+            setActiveIndex(2);
+          }
+
+          if (rounded >= 80) {
+            setActiveIndex(3);
+          }
         },
       },
     });
 
+    const startScroll = window.innerHeight / 2 - cardHeight / 2;
+    const endScroll = window.innerHeight / 2 - gap;
+    console.log(endScroll);
     trigger
       .set(content, {
-        y: cardHeight,
+        y: startScroll,
       })
       .to(content, {
-        y: `-350`,
+        y: `-${endScroll}`,
         ease: 'power1.inOut',
       });
 
@@ -81,21 +82,15 @@ const FeaturesSection = () => {
     if (index === activeIndex) return;
 
     const cards = gsap.utils.toArray(contentRef.current.children);
-    const cardHeight = cards[0].offsetHeight;
-    const gap = 16;
+    const card = cards[index];
 
-    const currentPosition = activeIndex * (cardHeight + gap);
-    const targetPosition = index * (cardHeight + gap);
-
-    const scrollOffset = targetPosition - currentPosition;
-    console.log(scrollOffset);
-
-    window.scrollBy({
-      top: scrollOffset,
-      behavior: 'smooth',
+    gsap.to(contentRef.current, {
+      duration: 0.6,
+      ease: 'power2.out',
+      y: -card.offsetTop + window.innerHeight / 2 - card.offsetHeight / 2,
     });
 
-    setActiveIndex(index);
+    // setActiveIndex(index);
   };
 
   return (
@@ -125,7 +120,6 @@ const FeaturesSection = () => {
             />
           </div>
         ))}
-        <div></div>
       </div>
       <div ref={contentRef} className={styles.right}>
         {FEATURES.map((card, index) => (
@@ -133,7 +127,6 @@ const FeaturesSection = () => {
             key={card.title}
             card={card}
             isActive={index === activeIndex}
-            className={styles.card}
           />
         ))}
       </div>
