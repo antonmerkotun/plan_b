@@ -12,7 +12,7 @@ const Cube = () => {
         <div className={styles.contentBlock}>
           <h3 className={styles.title}>Build. Transact. Scale.</h3>
           <div className={styles.splineBlock}>
-            {/*<CubeSpline className={styles.cube} />*/}
+            <CubeSpline className={styles.cube} />
             <ReactSVG className={styles.bitcoin} src={bitcoin} />
           </div>
           <div className={styles.info}>
