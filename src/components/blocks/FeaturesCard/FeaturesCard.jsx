@@ -35,7 +35,9 @@ const FeaturesCard = ({ card, isActive, isButton, buttonText }) => {
           />
         </>
       )}
-      {isButton && <Button className={styles.button} name={buttonText} />}
+      {isButton && (
+        <Button type="secondary" className={styles.button} name={buttonText} />
+      )}
     </div>
   );
 };

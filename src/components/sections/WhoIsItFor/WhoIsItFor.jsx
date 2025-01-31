@@ -4,10 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import FeaturesCard from '@/components/blocks/FeaturesCard/FeaturesCard.jsx';
 import { ReactSVG } from 'react-svg';
+import { WHOISITFOR } from '@/data/who-is-it-for.js';
 import layer from '@/assets/icons/layer.svg';
 import arrow from '@/assets/icons/arrow-black.svg';
+import circle from '@/assets/icons/circle.svg';
 import styles from '@/components/sections/WhoIsItFor/WhoIsItFor.module.scss';
-import { WHOISITFOR } from '@/data/who-is-it-for.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,46 +16,59 @@ const WhoIsItFor = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
+  const arrowRef = useRef(null);
+  const progressRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     const content = contentRef.current;
+    const progress = progressRef.current;
     const cards = gsap.utils.toArray(content.children);
     const cardHeight = cards[0].offsetHeight;
+    const arrow = arrowRef.current.children[0].children[0];
     const gap = 32;
-
-    cards.forEach((card, index) => {
-      ScrollTrigger.create({
-        id: 'it-for',
-        trigger: card,
-        start: 'top center',
-        end: 'bottom center',
-        scrub: 0.5,
-        onEnter: () => setActiveIndex(index),
-        onEnterBack: () => setActiveIndex(index),
-      });
-    });
-
-    const contentHeight = content.offsetHeight;
+    const startScroll = window.innerHeight / 2 - cardHeight / 2;
+    const endScroll = window.innerHeight / 2 + gap * cards.length;
 
     const trigger = gsap.timeline({
       paused: true,
       scrollTrigger: {
-        id: 'it-for',
+        id: 'who-it-for',
         trigger: section,
         start: 'top top',
-        end: `+=${(contentHeight - cardHeight - gap * cards.length) * 1.5}`,
+        end: `bottom+=${(cards.length - 1) * 1000} center`,
         scrub: true,
         pin: true,
+        onUpdate: (self) => {
+          const activeIndex = Math.floor(self.progress * cards.length);
+          setActiveIndex(activeIndex);
+
+          gsap.to(arrow, {
+            rotation: -self.progress * 80,
+          });
+        },
       },
     });
 
+    // gsap.set(progress, {
+    //   position: 'absolute',
+    //   top: '-331',
+    //   width: '896',
+    //   height: '896',
+    //   left: 0,
+    //   right: 0,
+    //   margin: '0 auto',
+    //   borderRadius: '50%',
+    //   // background: `#4C8D91`,
+    //   zIndex: 0,
+    // });
+
     trigger
       .set(content, {
-        y: cardHeight,
+        y: startScroll,
       })
       .to(content, {
-        y: `-${contentHeight - cardHeight - gap * cards.length}`,
+        y: -endScroll,
         ease: 'power1.inOut',
       });
 
@@ -76,19 +90,19 @@ const WhoIsItFor = () => {
         </div>
       </div>
       <div className={styles.center}>
-        {/*{ITFOR.map((card, index) => (*/}
-        {/*  <div key={card.title} className={styles.point}>*/}
-        {/*    <span*/}
-        {/*      className={`${styles.pointTitle} ${index === activeIndex ? styles.activeTitle : ''}`}*/}
-        {/*    >*/}
-        {/*      {card.title}*/}
-        {/*    </span>*/}
-        {/*    <ReactSVG*/}
-        {/*      className={`${styles.icon} ${index === activeIndex ? styles.activeIcon : ''}`}*/}
-        {/*      src={circle}*/}
-        {/*    />*/}
-        {/*  </div>*/}
-        {/*))}*/}
+        {WHOISITFOR.map((card, index) => (
+          <div key={card.title} className={styles.point}>
+            <ReactSVG
+              className={`${styles.icon} ${index === activeIndex ? styles.activeIcon : ''}`}
+              src={circle}
+            />
+            <span
+              className={`${styles.numbers}  ${index === activeIndex ? styles.activeNumber : ''}`}
+            >
+              0{index + 1}
+            </span>
+          </div>
+        ))}
       </div>
       <div ref={contentRef} className={styles.right}>
         {WHOISITFOR.map((card, index) => (
@@ -103,7 +117,10 @@ const WhoIsItFor = () => {
         ))}
       </div>
       <ReactSVG className={styles.layer} src={layer} />
-      <ReactSVG className={styles.arrow} src={arrow} />
+      {/*<div ref={progressRef}></div>*/}
+      <div ref={arrowRef} className={styles.arrow}>
+        <ReactSVG src={arrow} />
+      </div>
     </section>
   );
 };

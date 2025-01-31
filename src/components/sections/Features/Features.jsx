@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -7,14 +7,15 @@ import Button from '@/components/ui/Button/Button.jsx';
 import FeaturesCard from '@/components/blocks/FeaturesCard/FeaturesCard.jsx';
 import { FEATURES } from '@/data/features.js';
 import circle from '@/assets/icons/circle.svg';
-import styles from '@/components/sections/FeaturesSection/FeaturesSection.module.scss';
+import styles from '@/components/sections/Features/Features.module.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FeaturesSection = () => {
+const Features = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
+  const triggerRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -22,75 +23,61 @@ const FeaturesSection = () => {
     const cards = gsap.utils.toArray(content.children);
     const cardHeight = cards[0].offsetHeight;
     const gap = 16;
+    const startScroll = window.innerHeight / 2 - cardHeight / 2;
+    const endScroll = window.innerHeight / 2 + gap * (cards.length - 1);
 
-    const contentHeight = content.offsetHeight;
-
-    const trigger = gsap.timeline({
+    triggerRef.current = gsap.timeline({
       paused: true,
       scrollTrigger: {
         id: 'features-section',
         trigger: section,
         start: 'top top',
-        end: `+=${(contentHeight - cardHeight - gap * cards.length) * 1.5 + 3000}`,
+        end: `bottom+=${cards.length * 1000} center`,
         scrub: true,
         pin: true,
-        anticipatePin: 1,
+        // anticipatePin: 1,
         onUpdate: (self) => {
-          const progress = self.progress;
-          const rounded = Math.floor(progress * 100);
-
-          console.log(rounded);
-
-          if (rounded >= 0) {
-            setActiveIndex(0);
-          }
-
-          if (rounded >= 30) {
-            setActiveIndex(1);
-          }
-
-          if (rounded >= 45) {
-            setActiveIndex(2);
-          }
-
-          if (rounded >= 80) {
-            setActiveIndex(3);
-          }
+          const activeIndex = Math.floor(self.progress * cards.length);
+          setActiveIndex(activeIndex);
         },
       },
     });
 
-    const startScroll = window.innerHeight / 2 - cardHeight / 2;
-    const endScroll = window.innerHeight / 2 - gap;
-    console.log(endScroll);
-    trigger
+    triggerRef.current
       .set(content, {
         y: startScroll,
       })
       .to(content, {
-        y: `-${endScroll}`,
+        y: -endScroll,
         ease: 'power1.inOut',
       });
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      trigger.kill();
+      triggerRef.current.kill();
     };
   }, []);
 
   const handlePointClick = (index) => {
     if (index === activeIndex) return;
+    const content = contentRef.current;
+    const cards = gsap.utils.toArray(content.children);
+    const cardHeight = cards[index].offsetHeight;
+    const scrollAmount = Math.abs(index - activeIndex);
 
-    const cards = gsap.utils.toArray(contentRef.current.children);
-    const card = cards[index];
+    const scrollOffset = cardHeight * scrollAmount + 1000 - 16 * cards.length;
 
-    gsap.to(contentRef.current, {
-      duration: 0.6,
-      ease: 'power2.out',
-      y: -card.offsetTop + window.innerHeight / 2 - card.offsetHeight / 2,
-    });
-
-    // setActiveIndex(index);
+    if (index > activeIndex) {
+      window.scrollBy({
+        top: scrollOffset,
+        behavior: 'smooth',
+      });
+    } else {
+      window.scrollBy({
+        top: -scrollOffset,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
@@ -134,4 +121,4 @@ const FeaturesSection = () => {
   );
 };
 
-export default FeaturesSection;
+export default Features;

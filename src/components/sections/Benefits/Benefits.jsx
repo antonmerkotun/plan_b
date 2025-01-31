@@ -1,17 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { ReactSVG } from 'react-svg';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import styles from '@/components/sections/BenefitsSection/BenefitsSection.module.scss';
-import { SLIDES } from '@/data/benefits.js';
 import BenefitsCard from '@/components/blocks/BenefitsCard/BenefitsCard.jsx';
 import SliderButton from '@/components/ui/SliderButton/SliderButton.jsx';
-import { ReactSVG } from 'react-svg';
+import { SLIDES } from '@/data/benefits.js';
+import styles from '@/components/sections/Benefits/Benefits.module.scss';
 import borderCounter from '@/assets/icons/top-left.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BenefitsSection = () => {
+const Benefits = () => {
   const [activeIndexTab, setActiveIndexTab] = useState(0);
   const [activeIndexCard, setActiveIndexCard] = useState(0);
   const sectionRef = useRef(null);
@@ -173,4 +173,4 @@ const BenefitsSection = () => {
   );
 };
 
-export default BenefitsSection;
+export default Benefits;

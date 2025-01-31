@@ -3,9 +3,9 @@ import { ReactSVG } from 'react-svg';
 import CubeSpline from '@/components/ui/Spline/Cube/Cube.jsx';
 import bitcoin from '@/assets/icons/bitcoin.svg';
 import tabBg from '@/assets/icons/tab-bg.svg';
-import styles from '@/components/sections/CubeSection/CubeSection.module.scss';
+import styles from '@/components/sections/Cube/Cube.module.scss';
 
-const CubeSection = () => {
+const Cube = () => {
   return (
     <section id="cube-section" className={`${styles.section}`}>
       <div className={styles.content}>
@@ -52,4 +52,4 @@ const CubeSection = () => {
   );
 };
 
-export default CubeSection;
+export default Cube;
