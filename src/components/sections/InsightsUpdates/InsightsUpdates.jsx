@@ -55,9 +55,14 @@ const InsightsUpdates = () => {
           onClick={() => swiperRef.current?.slidePrev()}
           isReverse
         />
-        <SliderButton onClick={() => swiperRef.current?.slideNext()} />
+        <SliderButton
+          onClick={() => {
+            console.log(1);
+            swiperRef.current?.slideNext();
+          }}
+        />
       </div>
-      <ReactSVG className="insights-updates-background" src={circle} />
+      {/*<ReactSVG className="insights-updates-background" src={circle} />*/}
     </section>
   );
 };
