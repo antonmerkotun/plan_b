@@ -1,6 +1,6 @@
 import Spline from '@splinetool/react-spline';
 
-import styles from '@/components/ui/Spline/EnergyLiquid/EnergyLiquid.module.scss';
+import styles from '@/components/blocks/Spline/EnergyLiquid/EnergyLiquid.module.scss';
 
 const EnergyLiquid = () => {
   return (

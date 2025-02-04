@@ -21,3 +21,13 @@
 .main::after {
 	right: 27%;
 }
+
+@media (max-width: 768px) {
+	.main::before {
+		left: 12px;
+	}
+
+	.main::after {
+		right: 12px;
+	}
+}

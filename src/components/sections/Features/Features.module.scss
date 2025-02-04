@@ -1,139 +1,157 @@
 .section {
-	position: relative;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .left {
-	width: 27%;
-	padding: 56px 64px 0;
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
+  width: 27%;
+  padding: 56px 64px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .content {
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .title {
-	color: #020011;
-	font-family: "Whyte Inktrap";
-	font-size: 32px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 120%;
+  color: #020011;
+  font-family: 'Whyte Inktrap', serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
 }
 
 .description {
-	color: #12120F;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 120%;
+  color: #12120f;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  font-family: Chillax, serif;
 }
 
-
 .center {
-	position: relative;
-	width: 46%;
+  position: relative;
+  width: 46%;
 }
 
 .bottle {
-	height: 500px;
-	width: 500px;
+  height: 500px;
+  width: 500px;
 }
 
 .right {
-	width: 27%;
-	padding: 0 64px;
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-	overflow: scroll;
-	height: 100%;
-}
-
-.energyLiquid {
-	//position: absolute;
-	//width: 209px;
-	//height: 400px;
+  width: 27%;
+  padding: 0 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: scroll;
+  height: 100%;
 }
 
 .point {
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .point:nth-child(1) {
-	top: 153px;
-	left: 20px;
+  top: 153px;
+  left: 20px;
 
-	& > .icon {
-		&::before {
+  .line {
+    top: 35px;
+    left: 85px;
 
-		}
-	}
+    & > div > svg {
+      width: 140px;
+    }
+  }
 }
 
 .point:nth-child(2) {
-	bottom: 211px;
-	left: 59px;
+  bottom: 300px;
+  left: 59px;
+
+  .line {
+    top: 32px;
+    left: 40px;
+
+    & > div > svg {
+      width: 120px;
+    }
+  }
 }
 
 .point:nth-child(3) {
-	bottom: 211px;
-	right: 39px;
+  bottom: 300px;
+  right: 39px;
+
+  .line {
+    transform: scaleX(-1);
+    top: 34px;
+    right: 50px;
+
+    & > div > svg {
+      width: 130px;
+    }
+  }
 }
 
 .point:nth-child(4) {
-	top: 153px;
-	right: 34px;
+  top: 153px;
+  right: 34px;
+
+  .line {
+    transform: scaleX(-1);
+    top: 34px;
+    right: 60px;
+
+    & > div > svg {
+      width: 150px;
+    }
+  }
 }
 
-
-
-.pointTitle{
-	color: rgba(2, 0, 17, 0.50);
-	font-family: "Whyte Inktrap";
-	font-size: 20px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 120%;
-
-	&:hover {
-		cursor: pointer;
-		color: #EE4503;
-	}
+.pointTitle {
+  color: rgba(2, 0, 17, 0.5);
+  font-family: 'Whyte Inktrap', serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
 }
 
 .activeTitle {
-	color: #020011;
-}
-
-.pointTitle:hover + .icon {
-		& > div > svg{
-			& > rect:nth-child(1) {
-				fill: #020011;
-			}
-
-			& > rect:nth-child(2) {
-				stroke: #020011;
-			}
-			& > circle{
-				fill: #EE4503
-			}
-		}
-
+  color: #020011;
 }
 
 .activeIcon {
-		& > div > svg > circle{
-			fill: #EE4503
-		}
+  & > div > svg > circle {
+    fill: #ee4503;
+  }
+}
+
+.line {
+  position: absolute;
+}
+
+.activeLine {
+  & > div > svg > path {
+    stroke: #020011;
+  }
+}
+
+.button {
+  width: 202px;
+  height: 48px;
 }

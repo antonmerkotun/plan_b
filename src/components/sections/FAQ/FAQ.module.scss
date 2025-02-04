@@ -1,0 +1,74 @@
+.section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+}
+
+.left {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 56px 64px;
+  width: 27%;
+}
+
+
+.center {
+  width: 46%;
+  padding: 0 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.right {
+  width: 27%;
+  padding: 56px 64px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 39px
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  color: #020011;
+  font-family: "Whyte Inktrap", serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.description {
+  color: #12120F;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  padding-right: 54px;
+}
+
+
+.navigation {
+  display: flex;
+  gap: 25px;
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: scale(0.80);
+  transition: all 300ms ease-in-out;
+}
+
+.fadeIn {
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+  transform: scale(1);
+}

@@ -1,0 +1,146 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.20);
+  backdrop-filter: blur(10px);
+  z-index: 30;
+  overflow: hidden;
+}
+
+.communityForm {
+  width: 727px;
+  padding: 56px;
+  border-radius: 8px 32px;
+  border: 1px solid #D9D9D9;
+  background: #F3F3F3;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.title {
+  color: #020011;
+  font-family: "Whyte Inktrap", serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.section {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+
+  .sectionTitle {
+    color: #020011;
+    font-family: "Whyte Inktrap", serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+  }
+
+  .titleSuccess {
+    color: #282828;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 4px 16px;
+  background: #ffffff;
+  border: 1px transparent solid;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    color: #020011;
+    border: 1px solid #ee4503;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #9A99A0;
+  }
+}
+
+.checkboxGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.subscribeBtn {
+  width: 202px;
+  height: 48px;
+}
+
+select {
+  color: #9A99A0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  appearance: none;
+  position: relative;
+}
+
+
+input[type="checkbox"] {
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+  background-color: #fff;
+  border: none;
+  border-radius: 2px 4px;
+  appearance: none;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  border: 1px solid #EE4503;
+}
+
+input[type="checkbox"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  background: url('@/assets/icons/tick.svg') no-repeat center center;
+  background-size: contain;
+}
+
+
+

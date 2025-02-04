@@ -1,80 +1,154 @@
-.benefitsCard {
-	background-image: url('@/assets/icons/benefits-card.svg');
-	background-repeat: no-repeat;
-	background-position: center;
-	padding: 48px;
-	width: 607px;
-	height: 308px;
-	position: relative;
-	transition: background-image 0.3s ease, opacity 0.3s ease;
-	min-width: 607px;
+.card {
+  position: relative;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-image: url('@/assets/icons/benefits-card.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 48px;
+  border-radius: 16px;
+  transition:
+    background-image 0.3s ease,
+    opacity 0.3s ease;
 
+  .icon {
+    position: absolute;
+    top: 1%;
+    right: 8%;
+  }
 
-	&Icon {
-		position: absolute;
-		top: 1%;
-		right: 8%;
-	}
+  .title {
+    color: #12120f;
+    font-family: Chillax, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+  }
 
-	&Title {
-		color: rgba(255, 255, 255, 0.7);
-		font-size: 20px;
-		font-weight: 500;
-		line-height: 120%;
-	}
+  .block {
+    position: relative;
+    padding: 8px 25px;
 
-	&Text {
-		color: #fff;
-		text-align: center;
-		font-family: Whyte Inktrap;
-		font-size: 28px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 110%;
-	}
+    .description {
+      color: #020011;
+      text-align: center;
+      font-family: 'Whyte Inktrap', serif;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 110%;
+    }
 
-	&Type {
-		color: #020011;
-		font-size: 16px;
-		font-weight: 600;
-		position: absolute;
-		bottom: 0;
-		left: 5%;
-	}
+    .icon {
+      &Tl {
+        position: absolute;
+        top: 0;
+        left: 0;
 
-	&Block {
-		position: relative;
-		padding: 20px;
-		margin-top: 32px;
+        & > div {
+          display: flex;
+        }
+      }
 
-		&Icon {
-			&Tl {
-				position: absolute;
-				top: 0;
-				left: 0;
-			}
+      &Tr {
+        position: absolute;
+        top: 0;
+        right: 0;
 
-			&Tr {
-				position: absolute;
-				top: 0;
-				right: 0;
-			}
+        & > div {
+          display: flex;
+        }
+      }
 
-			&Br {
-				position: absolute;
-				bottom: 0;
-				right: 0;
-			}
+      &Br {
+        position: absolute;
+        bottom: 0;
+        right: 0;
 
-			&Bl {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-			}
-		}
-	}
+        & > div {
+          display: flex;
+        }
+      }
 
-	&Active {
-		background-image: url('@/assets/icons/benefits-card-active.svg');
-	}
+      &Bl {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        & > div {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  .type {
+    font-family: Chillax, serif;
+    color: #020011;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    position: absolute;
+    bottom: 0;
+    left: 6%;
+  }
+}
+
+.cardActive {
+  background-image: url('@/assets/icons/benefits-card-active.svg');
+
+  .title {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .block {
+    .description {
+      color: #ffffff;
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .card {
+    padding: 16px 24px 48px;
+
+    .icon {
+      width: 30px;
+      height: 30px;
+
+      & > div {
+        display: flex;
+      }
+    }
+
+    .title {
+      font-size: 18px;
+      line-height: 110%;
+      padding-right: 35px;
+    }
+
+    .block {
+      padding: 8px 17px;
+
+      .description {
+        font-size: 20px;
+        line-height: 110%;
+      }
+    }
+
+    .type {
+      font-size: 14px;
+      left: 2%;
+      bottom: 1%;
+    }
+  }
+
+  .cardActive {
+    background-image: url('@/assets/icons/benefits-card-movile-active.svg');
+  }
 }

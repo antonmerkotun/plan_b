@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { ReactSVG } from 'react-svg';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import 'swiper/css';
 
 import BenefitsCard from '@/components/blocks/BenefitsCard/BenefitsCard.jsx';
-import SliderButton from '@/components/ui/SliderButton/SliderButton.jsx';
+import Button from '@/components/ui/Button/Button.jsx';
 import { SLIDES } from '@/data/benefits.js';
-import styles from '@/components/sections/Benefits/Benefits.module.scss';
 import borderCounter from '@/assets/icons/top-left.svg';
+import arrow from '@/assets/icons/arrow-white.svg';
+import styles from '@/components/sections/Benefits/Benefits.module.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,9 +19,11 @@ const Benefits = () => {
   const [activeIndexCard, setActiveIndexCard] = useState(0);
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
-  const leftBlockRef = useRef(null);
+  const infoRef = useRef(null);
+  const swiperRef = useRef(null);
 
   useEffect(() => {
+    if (window.innerWidth < 769) return;
     const section = sectionRef.current;
     const content = gsap.utils.toArray(contentRef.current.children);
     const cardWidth = content[0].offsetWidth;
@@ -26,7 +31,7 @@ const Benefits = () => {
     const restCards = content.length - 1;
 
     gsap.set(content, {
-      x: 28,
+      x: 0,
       opacity: 1,
     });
 
@@ -37,7 +42,7 @@ const Benefits = () => {
         trigger: section,
         pin: true,
         scrub: 1,
-        start: 'top top',
+        start: 'top+=5 top',
         end: `+=${(cardWidth + gap) * content.length + 2000}`,
         ease: 'power2.out',
         snap: {
@@ -68,12 +73,12 @@ const Benefits = () => {
   const handleArrowClick = (direction) => {
     const content = gsap.utils.toArray(contentRef.current.children);
     const cardWidth = content[0].offsetWidth;
-    const leftBlockWidth = leftBlockRef.current.offsetWidth;
+    const leftBlockWidth = infoRef.current.offsetWidth;
 
     const initialOffset =
       (cardWidth * (content.length - 1)) / (content.length - 1) +
-      leftBlockWidth -
-      110;
+      leftBlockWidth +
+      500;
 
     const scrollOffset = direction === 1 ? initialOffset : -initialOffset;
 
@@ -85,48 +90,54 @@ const Benefits = () => {
 
   const handleTabClick = (index) => {
     if (activeIndexTab === index) return;
+
+    // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    // gsap.killTweensOf(contentRef.current);
+
+    // const rect = sectionRef.current.getBoundingClientRect();
+    // const distanceToTop = rect.top + window.scrollY;
+    //
+    // // Прокручуємо до початку секції
+    // window.scrollBy({
+    //   top: 6000,
+    //   behavior: 'smooth',
+    // });
     //
     // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    // const content = gsap.utils.toArray(contentRef.current.children);
     //
-    // gsap.set(content, {
-    //   x: 28,
-    //   opacity: 1,
-    // });
-
-    window.scrollBy({
-      top: 0,
-      behavior: 'smooth',
-    });
-
     setActiveIndexTab(index);
-    // setActiveIndexCard(0);
+    setActiveIndexCard(0);
   };
 
   return (
     <section ref={sectionRef} id="benefits-section" className={styles.section}>
-      <div ref={leftBlockRef} className={styles.leftBlock}>
-        <div>
-          <h1>Benefits, that you’ll have</h1>
-          <p>
+      <div ref={infoRef} className={styles.info}>
+        <div className={styles.content}>
+          <h1 className={styles.title}>Benefits, that you’ll have</h1>
+          <p className={styles.description}>
             Plan B is an EVM-compatible blockchain that uses BTC as gas,
             supports staking, dApps, and fast transactions
           </p>
         </div>
         <div className={styles.navigation}>
-          <SliderButton
+          <Button
+            type="slider"
+            icon={arrow}
             onClick={() => handleArrowClick(-1)}
             isReverse
             isDisabled={activeIndexCard === 0}
           />
-          <SliderButton
+          <Button
+            icon={arrow}
+            type="slider"
             onClick={() => handleArrowClick(1)}
-            isDisabled={activeIndexCard === 3}
+            isDisabled={
+              activeIndexCard === SLIDES[activeIndexTab].items.length - 1
+            }
           />
         </div>
       </div>
-
-      <div className={styles.content}>
+      <div className={styles.center}>
         <div className={styles.tabs}>
           {SLIDES.map((item, index) => (
             <button
@@ -138,35 +149,71 @@ const Benefits = () => {
             </button>
           ))}
         </div>
-        <div className={styles.cardBlock}>
-          <div ref={contentRef} className={styles.horizontalScroll}>
-            {SLIDES[activeIndexTab].items.map((card, index) => (
-              <BenefitsCard
-                key={card.name}
-                card={card}
-                isActive={activeIndexCard === index}
-              />
-            ))}
-          </div>
+
+        <div ref={contentRef} className={styles.list}>
+          {SLIDES[activeIndexTab].items.map((card, index) => (
+            <BenefitsCard
+              key={card.name}
+              className={styles.card}
+              card={card}
+              isActive={activeIndexCard === index}
+            />
+          ))}
         </div>
-        <div className={styles.counter}>
-          <ReactSVG
-            className={`${styles.counterBorder} ${styles.counterBorderLeftTop}`}
-            src={borderCounter}
+
+        <div className={styles.slider}>
+          <Swiper
+            key={activeIndexTab}
+            className={styles.swiper}
+            effect="slide"
+            speed={500}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSlideChange={(swiper) => setActiveIndexCard(swiper.activeIndex)}
+          >
+            {SLIDES[activeIndexTab].items.map((card) => (
+              <SwiperSlide key={card.name} className={styles.card}>
+                <BenefitsCard card={card} isActive />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        <div className={styles.bottom}>
+          <Button
+            type="slider"
+            className={styles.buttonMobile}
+            icon={arrow}
+            isReverse
+            onClick={() => swiperRef.current?.slidePrev()}
+            isDisabled={activeIndexCard === 0}
           />
-          <ReactSVG
-            className={`${styles.counterBorder} ${styles.counterBorderLeftBottom}`}
-            src={borderCounter}
+          <div className={styles.counter}>
+            <ReactSVG
+              className={`${styles.border} ${styles.borderLeftTop}`}
+              src={borderCounter}
+            />
+            <ReactSVG
+              className={`${styles.border} ${styles.borderLeftBottom}`}
+              src={borderCounter}
+            />
+            <ReactSVG
+              className={`${styles.border} ${styles.borderRightTop}`}
+              src={borderCounter}
+            />
+            <ReactSVG
+              className={`${styles.border} ${styles.borderRightBottom}`}
+              src={borderCounter}
+            />
+            <span className={styles.number}>{activeIndexCard + 1}</span>
+          </div>
+          <Button
+            icon={arrow}
+            className={styles.buttonMobile}
+            type="slider"
+            onClick={() => swiperRef.current?.slideNext()}
+            isDisabled={
+              activeIndexCard === SLIDES[activeIndexTab].items.length - 1
+            }
           />
-          <ReactSVG
-            className={`${styles.counterBorder} ${styles.counterBorderRightTop}`}
-            src={borderCounter}
-          />
-          <ReactSVG
-            className={`${styles.counterBorder} ${styles.counterBorderRightBottom}`}
-            src={borderCounter}
-          />
-          <span className={styles.counterNumber}>{activeIndexCard + 1}</span>
         </div>
       </div>
     </section>

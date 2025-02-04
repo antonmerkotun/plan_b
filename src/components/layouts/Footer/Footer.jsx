@@ -1,14 +1,17 @@
 import React from 'react';
 import { ReactSVG } from 'react-svg';
 
-import envelope from '@/assets/icons/envelope.svg';
-import logo from '@/assets/icons/logo.svg';
 import Button from '@/components/ui/Button/Button';
 import SocialMedia from '@/components/ui/SocialMedia/SocialMedia';
+import { useModal } from '@/context/ModalContext.jsx';
+import envelope from '@/assets/icons/envelope.svg';
+import logo from '@/assets/icons/logo.svg';
 import { MENU } from '@/data/header.js';
-import './Footer.scss';
+import '@/components/layouts/Footer/Footer.scss';
 
 const Footer = () => {
+  const { openModal } = useModal();
+
   return (
     <footer className="footer">
       <div className="footer__social">
@@ -41,7 +44,7 @@ const Footer = () => {
       <div className="footer__subscribe">
         <div className="footer__subscribe-content">
           <h3 className="footer__subscribe-content-title">
-            Subsribe to our newsletters!
+            Subscribe to our newsletters!
           </h3>
           <div className="footer__subscribe-content-field">
             <input
@@ -50,11 +53,13 @@ const Footer = () => {
               placeholder="Your email"
             />
             <Button
+              onClick={openModal}
               width={'56px'}
               height={'44px'}
-              title={<ReactSVG src={envelope} />}
+              icon={envelope}
               type={'primary'}
               styles={{ borderRadius: '0 16px 4px 0' }}
+              className="footer__subscribe-content-field-button"
             />
           </div>
         </div>

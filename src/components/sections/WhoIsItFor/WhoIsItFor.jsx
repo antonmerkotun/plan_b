@@ -79,7 +79,11 @@ const WhoIsItFor = () => {
   }, []);
 
   return (
-    <section id="it-for-section" ref={sectionRef} className={styles.section}>
+    <section
+      id="who-is-it-for-section"
+      ref={sectionRef}
+      className={styles.section}
+    >
       <div className={styles.left}>
         <div className={styles.content}>
           <h2 className={styles.title}>Who’s It For?</h2>
@@ -117,7 +121,7 @@ const WhoIsItFor = () => {
         ))}
       </div>
       <ReactSVG className={styles.layer} src={layer} />
-      {/*<div ref={progressRef}></div>*/}
+      {/*<div ref={progressRef} className={styles.progressBar}></div>*/}
       <div ref={arrowRef} className={styles.arrow}>
         <ReactSVG src={arrow} />
       </div>

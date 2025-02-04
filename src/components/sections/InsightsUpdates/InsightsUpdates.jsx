@@ -7,25 +7,25 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 
 import InsightsUpdatesCard from '@/components/blocks/InsightsUpdatesCard/InsightsUpdatesCard.jsx';
-import SliderButton from '@/components/ui/SliderButton/SliderButton.jsx';
 import Button from '@/components/ui/Button/Button.jsx';
+import arrow from '@/assets/icons/arrow-white.svg';
 import { INSIGHTSUPDATES } from '@/data/insights-updates.js';
 import circle from '@/assets/icons/insights-updates-circle.svg';
-import '@/components/sections/InsightsUpdates/InsightsUpdates.scss';
+import styles from '@/components/sections/InsightsUpdates/InsightsUpdates.module.scss';
 
 const InsightsUpdates = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section id="insights-updates" className="section">
-      <div className="insights-updates-text">
+    <section id="insights-updates-section" className={styles.section}>
+      <div className={styles.info}>
         <div>
-          <h1>Insights & Updates</h1>
-          <p className="insights-updates-description">
+          <h1 className={styles.title}>Insights & Updates</h1>
+          <p className={styles.description}>
             Latest News and Perspectives on Blockchain Trends and Innovations
           </p>
         </div>
-        <Button className="insights-updates-button" name="See all" />
+        <Button className={styles.button} name="See all" />
       </div>
       <Swiper
         effect={'coverflow'}
@@ -34,6 +34,8 @@ const InsightsUpdates = () => {
         loop={true}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         allowTouchMove={false}
+        spaceBetween={30}
+        speed={800}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
@@ -42,24 +44,26 @@ const InsightsUpdates = () => {
           slideShadows: false,
         }}
         modules={[EffectCoverflow, Navigation]}
-        className="mySwiper"
+        className={styles.swiper}
+        watchSlidesProgress={true}
       >
         {INSIGHTSUPDATES.map((card, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} className={styles.slide}>
             <InsightsUpdatesCard card={card} />
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="navigation">
-        <SliderButton
+      <div className={styles.navigation}>
+        <Button
+          type="slider"
+          icon={arrow}
           onClick={() => swiperRef.current?.slidePrev()}
           isReverse
         />
-        <SliderButton
-          onClick={() => {
-            console.log(1);
-            swiperRef.current?.slideNext();
-          }}
+        <Button
+          type="slider"
+          icon={arrow}
+          onClick={() => swiperRef.current?.slideNext()}
         />
       </div>
       {/*<ReactSVG className="insights-updates-background" src={circle} />*/}

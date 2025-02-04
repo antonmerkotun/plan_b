@@ -1,168 +1,257 @@
 .section {
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	padding: 56px 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1.7fr 1fr;
+  padding: 56px 0;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 64px;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .title {
+        color: #020011;
+        font-family: 'Whyte Inktrap', serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+      }
+
+      .description {
+        color: #12120f;
+        font-family: Chillax, serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+      }
+    }
+
+    .navigation {
+      display: flex;
+      gap: 25px;
+    }
+  }
+
+  .center {
+    grid-column: 2/ 4;
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+
+    .tabs {
+      grid-column: 1 / 2;
+      display: flex;
+      width: auto;
+      height: max-content;
+      gap: 16px;
+      justify-content: center;
+      align-items: end;
+      position: relative;
+      margin: 0 auto;
+
+      &::before {
+        position: absolute;
+        bottom: 0;
+        content: '';
+        height: 15px;
+        width: 50px;
+        background-color: #e0e0e0;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: 8px;
+        content: '';
+        left: 104.6px;
+        height: 20px;
+        width: 16px;
+        background-color: #f3f3f3;
+        border-radius: 8px;
+      }
+
+      .tab {
+        color: #6b6b6b;
+        font-family: Chillax, serif;
+        border: none;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        background-color: #e0e0e0;
+        padding: 10px;
+        border-radius: 8px;
+        transition: all 300ms ease-in-out;
+
+        &Active {
+          height: 48px;
+          color: #020011;
+          text-decoration-line: underline;
+          text-decoration-style: solid;
+          text-decoration-skip-ink: auto;
+          text-decoration-thickness: auto;
+          text-underline-offset: auto;
+          text-underline-position: from-font;
+          cursor: initial;
+          pointer-events: none;
+        }
+
+        &Deactivated {
+          cursor: pointer;
+          height: 42px;
+          color: #6b6b6b;
+        }
+      }
+    }
+
+    .list {
+      padding-left: 29px;
+      display: flex;
+      align-items: center;
+      gap: 56px;
+      z-index: 0;
+      grid-column: 1 / 3;
+
+      .card {
+        min-width: 607px;
+        height: 305px;
+      }
+    }
+
+    .slider {
+      display: none;
+    }
+
+    .bottom {
+      display: flex;
+
+      .buttonMobile {
+        display: none;
+      }
+
+      .counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 80px;
+        margin: auto auto 0;
+        position: relative;
+
+        .number {
+          color: #020011;
+          font-family: 'Whyte Inktrap', serif;
+          font-size: 56px;
+          margin-top: 20px;
+        }
+
+        .border {
+          position: absolute;
+
+          &LeftTop {
+            top: 0;
+            left: 0;
+          }
+
+          &LeftBottom {
+            left: 0;
+            bottom: 0;
+            transform: rotate(270deg);
+          }
+
+          &RightTop {
+            top: 0;
+            right: 0;
+            transform: rotate(90deg);
+          }
+
+          &RightBottom {
+            bottom: 0;
+            right: 0;
+            transform: rotate(180deg);
+          }
+
+          & > div {
+            display: flex;
+
+            & > svg > path {
+              stroke: #c2c2c2;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-.leftBlock {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding: 0 64px;
-	max-width: 27%;
-	min-width: 27%;
-}
+@media (max-width: 769px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 56px 12px 16px;
 
-.content {
-	width: 46%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
+    .info {
+      padding: 0;
 
-.tabs {
-	display: flex;
-	width: auto;
-	gap: 16px;
-	justify-content: center;
-	align-items: end;
-	position: relative;
-	margin: 0 auto;
+      .content {
+        .title {
+          text-align: center;
+          font-size: 20px;
+        }
 
-	//pointer-events: none; //TODO: remove after fix click on tab
+        .description {
+          text-align: center;
+        }
+      }
 
-	&::before {
-		position: absolute;
-		bottom: 0;
-		content: '';
-		height: 15px;
-		width: 50px;
-		background-color: #E0E0E0;
-	}
+      .navigation {
+        display: none;
+      }
+    }
 
-	&::after {
-		position: absolute;
-		bottom: 8px;
-		content: '';
-		left: 100.7px;
-		height: 20px;
-		width: 16px;
-		background-color: #F3F3F3;
-		border-radius: 8px;
-	}
-}
+    .center {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
 
-.tab {
-	border: none;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 120%;
-	background-color: #E0E0E0;
-	padding: 10px;
-	border-radius: 8px;
-	transition: height 300ms ease-in-out, color 3s ease-in-out;
-}
+      .list {
+        display: none;
+      }
 
-.tabActive {
-	height: 48px;
-	color: #020011;
-	text-decoration-line: underline;
-	text-decoration-style: solid;
-	text-decoration-skip-ink: auto;
-	text-decoration-thickness: auto;
-	text-underline-offset: auto;
-	text-underline-position: from-font;
-	cursor: initial;
-	pointer-events: none;
-}
+      .slider {
+        display: block;
 
-.tabDeactivated {
-	cursor: pointer;
-	height: 42px;
-	color: #6B6B6B;
-}
+        .swiper {
+          height: 254px;
 
+          .card {
+            padding: 0 4px;
+            height: 198px;
+          }
+        }
+      }
 
-.counter {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 80px;
-	height: 80px;
-	margin: 0 auto;
-	position: relative;
+      .bottom {
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
 
-	&Number {
-		color: #020011;
-		font-family: "Whyte Inktrap";
-		font-size: 56px;
-		margin-top: 20px;
-	}
+        .buttonMobile {
+          display: flex;
+        }
 
-	&Border {
-		position: absolute;
-
-		&LeftTop{
-			top: 0;
-			left: 0;
-		}
-
-		&LeftBottom{
-			left: 0;
-			bottom: 0;
-			transform: rotate(270deg);
-		}
-
-		&RightTop{
-			top: 0;
-			right: 0;
-			transform: rotate(90deg);
-		}
-
-		&RightBottom{
-			bottom: 0;
-			right: 0;
-			transform: rotate(180deg);
-		}
-
-		& > div {
-			display: flex;
-
-			& > svg > path {
-				stroke: #C2C2C2;
-			}
-		}
-	}
-}
-
-.cardBlock {
-	display: flex;
-	flex-direction: column;
-}
-
-.horizontalScroll {
-	display: flex;
-	height: 100%;
-	gap: 56px;
-	z-index: 0;
-}
-
-.card {
-	min-width: 600px;
-	max-width: 600px;
-	height: 300px;
-	background-color: #C1C1C4;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 2rem;
-}
-
-.navigation {
-	display: flex;
-	gap: 25px;
-	z-index: 10;
+        .counter {
+          margin: 0;
+        }
+      }
+    }
+  }
 }

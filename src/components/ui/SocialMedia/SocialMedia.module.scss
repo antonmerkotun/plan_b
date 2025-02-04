@@ -1,5 +1,4 @@
 .socialMedia {
-	z-index: 11111;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -7,7 +6,8 @@
 	gap: 10px;
 	position: absolute;
 	right: 1%;
-	top: 13%;
+	top: 18%;
+	z-index: 20;
 }
 
 .link {
@@ -31,3 +31,10 @@
 		justify-content: center;
 	}
 }
+
+@media (max-width: 768px) {
+	.socialMedia {
+		display: none;
+	}
+}
+

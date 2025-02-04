@@ -1,6 +1,6 @@
 import Spline from '@splinetool/react-spline';
 
-import styles from '@/components/ui/Spline/Keyboard/Keyboard.module.scss';
+import styles from '@/components/blocks/Spline/Keyboard/Keyboard.module.scss';
 
 export const Keyboard = () => {
   return (

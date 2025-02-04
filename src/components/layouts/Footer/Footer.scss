@@ -65,9 +65,14 @@
 			&-field {
 				display: flex;
 
+				&-button {
+					border-radius: 0 16px 4px 0;
+				}
+
 				&-input {
+					width: 204px;
 					padding: 10px;
-					border-radius: 4px 0px 0px 16px;
+					border-radius: 4px 0 0 16px;
 					border: none;
 					color: rgba(2, 0, 17, 0.40);
 					font-size: 16px;
@@ -78,7 +83,11 @@
 
 					&::placeholder {
 						color: rgba(2, 0, 17, 0.40);
-						font-family: Chillax-Regular, sans-serif;
+						font-family: Chillax;
+						font-size: 16px;
+						font-style: normal;
+						font-weight: 400;
+						line-height: normal;
 					}
 				}
 			}

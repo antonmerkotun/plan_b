@@ -5,10 +5,13 @@ import Button from '@/components/ui/Button/Button';
 import { MENU } from '@/data/header.js';
 import chevronDown from '@/assets/icons/chevron-down.svg';
 import logo from '@/assets/icons/logo.svg';
+import burgerIcon from '@/assets/icons/burger.svg';
+import closeIcon from '@/assets/icons/burger.svg';
 import styles from '@/components/layouts/Header/Header.module.scss';
 
 const Header = () => {
   const [openMenuIndex, setOpenMenuIndex] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRefs = useRef([]);
 
   const handleMenuClick = (index) => {
@@ -34,7 +37,16 @@ const Header = () => {
 
   return (
     <header className={`${styles.header} container`}>
-      <nav className={styles.headerNav}>
+      <button
+        className={styles.burgerButton}
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        <ReactSVG src={isMobileMenuOpen ? closeIcon : burgerIcon} />
+      </button>
+
+      <nav
+        className={`${styles.headerNav} ${isMobileMenuOpen ? styles.open : ''}`}
+      >
         <ul className={styles.headerMenu}>
           {MENU.map((item, index) => (
             <li
@@ -73,7 +85,9 @@ const Header = () => {
           ))}
         </ul>
       </nav>
+
       <ReactSVG src={logo} className={styles.headerLogo} />
+
       <div className={styles.headerActions}>
         <Button
           className={styles.headerActionsButton}

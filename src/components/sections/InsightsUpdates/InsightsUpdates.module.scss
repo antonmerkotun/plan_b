@@ -1,0 +1,58 @@
+.section {
+  padding: 110px 0 56px;
+  position: relative;
+
+  .info {
+    position: absolute;
+    top: 56px;
+    left: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .title {
+      color: #020011;
+      font-family: 'Whyte Inktrap', serif;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+    }
+
+    .description {
+      color: #12120f;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      max-width: 200px;
+    }
+
+    .button {
+      max-width: 200px;
+      height: 48px;
+    }
+  }
+
+  .swiper {
+    height: 100%;
+    overflow: visible;
+
+    .slide {
+      width: 500px;
+      height: 430px;
+      transition: transform 0.3s ease;
+    }
+
+    .slide:not(.swiper-slide-active) {
+      transform: scale(0.5) translateY(330px) !important;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 56px;
+  }
+}

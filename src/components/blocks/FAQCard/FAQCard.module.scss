@@ -1,0 +1,312 @@
+.card {
+
+  &Active {
+    position: relative;
+    padding: 0 48px 32px;
+    background-color: #EE4503;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .question {
+      color: #ffffff;
+      font-family: "Whyte Inktrap";
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 110%;
+      z-index: 2;
+      padding-right: 190px;
+    }
+
+    .answer {
+      color: rgba(255, 255, 255, 0.70);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+    }
+
+    .type {
+      color: #020011;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      position: absolute;
+      bottom: -35px;
+      left: 5%;
+    }
+  }
+
+
+  &Small {
+    position: relative;
+    background-color: #EDEDED;
+    padding: 0 24px 16px;
+    border-radius: 0 0 8px 8px;
+
+    .question {
+      line-height: 110%;
+    }
+
+    &Bg {
+      position: absolute;
+      top: -23px;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+
+      & > div {
+        display: flex;
+
+        & > svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    &Active {
+      position: relative;
+      background-color: #EE4503;
+      padding: 0 24px 16px;
+      border-radius: 0 0 8px 8px;
+
+      .question {
+        color: #ffffff;
+        line-height: 110%;
+      }
+    }
+  }
+}
+
+.block {
+  position: relative;
+  padding: 20px;
+
+  &Icon {
+    &Tl {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &Tr {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    &Br {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    &Bl {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+.cardBgTop {
+  position: absolute;
+  top: -63px;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+
+  & > div {
+    display: flex;
+
+    & > svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.cardBgBottom {
+  position: absolute;
+  bottom: -34px;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+
+  & > div {
+    display: flex;
+
+    & > svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+//.card {
+//  background-image: url('@/assets/icons/faq-bg.svg');
+//  padding: 48px;
+//  width: 607px;
+//  height: 416px;
+//  position: relative;
+//  background-repeat: no-repeat;
+//  background-position: center;
+//
+//  &Question {
+//    //color: #ffffff;
+//    //font-family: "Whyte Inktrap";
+//    //font-size: 28px;
+//    //font-style: normal;
+//  	//font-weight: 500;
+//  	//line-height: 110%;
+//  	//z-index: 2;
+//  	//padding-right: 190px;
+//  }
+//
+//  &Answer {
+//    //color: rgba(255, 255, 255, 0.70);
+//  	//font-size: 20px;
+//  	//font-style: normal;
+//  	//font-weight: 500;
+//    //line-height: 120%;
+//  }
+//
+//
+//
+//
+//
+//  &Active {
+//    background-image: url('@/assets/icons/faq-bg-active.svg');
+//  }
+//
+//  &Small {
+//
+//	&Active{
+//
+//    }
+//  }
+//}
+
+
+
+//.card {
+//	background-image: url('@/assets/icons/faq-bg.svg');
+//	padding: 48px;
+//	width: 607px;
+//	height: 416px;
+//	position: relative;
+//	background-repeat: no-repeat;
+//	background-position: center;
+//
+//	&Question {
+//		color: #ffffff;
+//		font-family: "Whyte Inktrap";
+//		font-size: 28px;
+//		font-style: normal;
+//		font-weight: 500;
+//		line-height: 110%;
+//		z-index: 2;
+//		padding-right: 190px;
+//
+//		&Small {
+//			font-size: 20px;
+//		}
+//	}
+//
+//	&Answer {
+//		color: rgba(255, 255, 255, 0.70);
+//		font-size: 20px;
+//		font-style: normal;
+//		font-weight: 500;
+//		line-height: 120%;
+//	}
+//
+//	&Type {
+//		color: #020011;
+//		font-size: 16px;
+//		font-style: normal;
+//		font-weight: 500;
+//		line-height: normal;
+//		position: absolute;
+//		bottom: 0;
+//		left: 5%;
+//	}
+//
+//	&Block {
+//		position: relative;
+//		padding: 20px;
+//		margin-top: 32px;
+//
+//		&Icon {
+//			&Tl {
+//				position: absolute;
+//				top: 0;
+//				left: 0;
+//			}
+//
+//			&Tr {
+//				position: absolute;
+//				top: 0;
+//				right: 0;
+//			}
+//
+//			&Br {
+//				position: absolute;
+//				bottom: 0;
+//				right: 0;
+//			}
+//
+//			&Bl {
+//				position: absolute;
+//				bottom: 0;
+//				left: 0;
+//			}
+//		}
+//	}
+//
+//	&Active {
+//		background-image: url('@/assets/icons/faq-bg-active.svg');
+//
+//		& > .cardSmallBg{
+//
+//				& > div > svg > path {
+//					fill: #EE4503;
+//				}
+//
+//		}
+//	}
+//
+//
+//	&Small{
+//		padding: 0 24px 16px;
+//		max-width: 260px;
+//		//border-bottom-left-radius: 8px;
+//		//border-bottom-right-radius: 8px;
+//
+//		background-image: url('@/assets/icons/faq-bg.svg');
+//
+//		&Bg{
+//			position: absolute;
+//			top: -22px;
+//			left: 0;
+//			z-index: -1;
+//
+//			& > div > svg > path {
+//				fill: #EDEDED;
+//			}
+//		}
+//	}
+//}

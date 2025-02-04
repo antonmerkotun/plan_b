@@ -62,7 +62,7 @@ const Navigation = () => {
 
       <ReactSVG
         className={`${styles.icon} ${
-          currentSectionIndex === SECTIONS.length - 1 ? styles.disabled : ''
+          currentSectionIndex === SECTIONS.length - 1 ? styles.iconDisabled : ''
         }`}
         style={{ marginBottom: '10px', transform: 'rotate(90deg)' }}
         src={arrowDown}

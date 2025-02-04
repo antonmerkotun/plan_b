@@ -8,9 +8,9 @@
 	border-radius: 80px;
 	background: #fff;
 	position: fixed;
-	z-index: 11111;
+	z-index: 10;
 	left: 1%;
-	top: 15%;
+	top: 18%;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -40,5 +40,11 @@
 		& path {
 			fill: #CCCCCC;
 		}
+	}
+}
+
+@media (max-width: 768px) {
+	.navigation {
+		display: none;
 	}
 }
