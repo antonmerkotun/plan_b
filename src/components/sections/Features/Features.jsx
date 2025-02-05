@@ -19,13 +19,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [spaceBetween, setSpaceBetween] = useState(16);
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const triggerRef = useRef(null);
   const swiperRef = useRef(null);
 
   useEffect(() => {
-    if (window.innerWidth < 769) return;
+    if (window.innerWidth <= 1024) return;
     const section = sectionRef.current;
     const content = contentRef.current;
     const cards = gsap.utils.toArray(content.children);
@@ -63,6 +64,20 @@ const Features = () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       triggerRef.current.kill();
     };
+  }, []);
+
+  useEffect(() => {
+    const updateSpaceBetween = () => {
+      if (window.innerWidth <= 768) {
+        setSpaceBetween(16);
+      } else if (window.innerWidth <= 1024) {
+        setSpaceBetween(80);
+      }
+    };
+
+    updateSpaceBetween();
+    window.addEventListener('resize', updateSpaceBetween);
+    return () => window.removeEventListener('resize', updateSpaceBetween);
   }, []);
 
   return (
@@ -113,7 +128,7 @@ const Features = () => {
           speed={500}
           slidesPerView="auto"
           centeredSlides={true}
-          spaceBetween={16}
+          spaceBetween={spaceBetween}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         >

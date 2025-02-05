@@ -145,3 +145,21 @@
     }
   }
 }
+
+@media (max-width: 1280px) {
+  .card {
+    &Small {
+      &Bg {
+        top: -19px;
+      }
+    }
+
+    &BgTop {
+      top: -55px;
+    }
+
+    &BgBottom {
+      bottom: -30px;
+    }
+  }
+}

@@ -154,7 +154,148 @@
   }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 1024px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+    padding: 56px 16px;
+    height: 100%;
+
+    .info {
+      padding: 0;
+      gap: 16px;
+      max-width: 420px;
+      margin: 0 auto;
+
+      .content {
+        gap: 12px;
+
+        .title {
+          font-size: 28px;
+          text-align: center;
+        }
+
+        .description {
+          text-align: center;
+        }
+      }
+
+      .button {
+        margin: 0 auto;
+        width: 184px;
+        height: 44px;
+        font-size: 16px;
+      }
+    }
+
+    .center {
+      max-height: 407px;
+      max-width: 560px;
+      margin: 56px auto 0;
+
+      .point {
+        .pointTitle {
+          font-size: 18px;
+        }
+
+        .activeTitle {
+        }
+
+        .icon {
+        }
+
+        .activeIcon {
+        }
+
+        .line {
+        }
+
+        .activeLine {
+        }
+      }
+    }
+
+    .list {
+      display: none;
+    }
+
+    .slider {
+      display: block;
+      margin-top: 40px;
+
+      .swiper {
+        & > div {
+          align-items: center;
+        }
+      }
+
+      .card {
+        width: 30%;
+      }
+
+      .navigation {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 32px;
+
+        .counter {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 80px;
+          height: 80px;
+          position: relative;
+
+          .number {
+            color: #020011;
+            font-family: 'Whyte Inktrap', serif;
+            font-size: 56px;
+            margin-top: 20px;
+          }
+
+          .border {
+            position: absolute;
+
+            &LeftTop {
+              top: 0;
+              left: 0;
+            }
+
+            &LeftBottom {
+              left: 0;
+              bottom: 0;
+              transform: rotate(270deg);
+            }
+
+            &RightTop {
+              top: 0;
+              right: 0;
+              transform: rotate(90deg);
+            }
+
+            &RightBottom {
+              bottom: 0;
+              right: 0;
+              transform: rotate(180deg);
+            }
+
+            & > div {
+              display: flex;
+
+              & > svg > path {
+                stroke: #c2c2c2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
   .section {
     display: flex;
     flex-direction: column;

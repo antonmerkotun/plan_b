@@ -23,7 +23,7 @@ const Benefits = () => {
   const swiperRef = useRef(null);
 
   useEffect(() => {
-    if (window.innerWidth < 769) return;
+    if (window.innerWidth <= 1024) return;
     const section = sectionRef.current;
     const content = gsap.utils.toArray(contentRef.current.children);
     const cardWidth = content[0].offsetWidth;
@@ -166,13 +166,19 @@ const Benefits = () => {
             key={activeIndexTab}
             className={styles.swiper}
             effect="slide"
+            centeredSlides={true}
+            slidesPerView={'auto'}
             speed={500}
+            spaceBetween={96}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setActiveIndexCard(swiper.activeIndex)}
           >
-            {SLIDES[activeIndexTab].items.map((card) => (
+            {SLIDES[activeIndexTab].items.map((card, index) => (
               <SwiperSlide key={card.name} className={styles.card}>
-                <BenefitsCard card={card} isActive />
+                <BenefitsCard
+                  card={card}
+                  isActive={index === activeIndexCard}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -203,7 +209,7 @@ const Benefits = () => {
               className={`${styles.border} ${styles.borderRightBottom}`}
               src={borderCounter}
             />
-            <span className={styles.number}>{activeIndexCard + 1}</span>
+            <span className={styles.number}>0{activeIndexCard + 1}</span>
           </div>
           <Button
             icon={arrow}

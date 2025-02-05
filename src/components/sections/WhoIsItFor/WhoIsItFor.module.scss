@@ -40,26 +40,26 @@
 
       &:nth-child(1) {
         transform: rotate(30deg);
-        top: 510px;
-        left: 100px;
+        top: 476px;
+        left: 38px;
       }
 
       &:nth-child(2) {
-        transform: rotate(12deg);
+        transform: rotate(15deg);
         top: 545px;
         left: 200px;
       }
 
       &:nth-child(3) {
-        transform: rotate(-12deg);
+        transform: rotate(-15deg);
         top: 545px;
         right: 200px;
       }
 
       &:nth-child(4) {
         transform: rotate(-30deg);
-        top: 510px;
-        right: 100px;
+        top: 476px;
+        right: 38px;
       }
 
       .icon {
@@ -108,6 +108,12 @@
     }
   }
 
+  .progressLine {
+    position: absolute;
+    top: 426px;
+    left: 18px;
+  }
+
   .arrow {
     position: absolute;
     top: 100px;
@@ -133,7 +139,17 @@
   }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 1280px) {
+  .section {
+    .info {
+      .title {
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
   .section {
     display: flex;
     flex-direction: column;
@@ -143,7 +159,7 @@
       padding: 0;
 
       .title {
-        font-size: 20px;
+        font-size: 28px;
         text-align: center;
         padding: 0;
       }
@@ -151,6 +167,68 @@
       .description {
         text-align: center;
         padding: 0;
+      }
+    }
+
+    .center {
+      .point {
+        &:nth-child(1) {
+          top: 0;
+        }
+
+        &:nth-child(2) {
+          top: 0;
+        }
+
+        &:nth-child(3) {
+          top: 0;
+        }
+
+        &:nth-child(4) {
+          top: 0;
+        }
+
+        .icon {
+          &Active {
+          }
+        }
+
+        .number {
+          &Active {
+          }
+        }
+      }
+    }
+
+    .list {
+      display: none;
+    }
+
+    .slider {
+      display: block;
+      margin-top: auto;
+
+      .card {
+        width: 40%;
+      }
+    }
+
+    .layer {
+    }
+
+    .arrow {
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    .info {
+      .title {
+        font-size: 20px;
+      }
+
+      .description {
       }
     }
 

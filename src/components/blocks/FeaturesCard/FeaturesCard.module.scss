@@ -90,7 +90,7 @@
   }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 1024px) {
   .card {
     display: flex;
     flex-direction: column;
@@ -104,6 +104,9 @@
     }
 
     .icon {
+      &Default > div > svg > path {
+        stroke: #e7e7e7;
+      }
     }
 
     .text {

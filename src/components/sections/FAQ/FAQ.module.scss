@@ -77,7 +77,69 @@
   }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 1024px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+    padding: 56px 16px;
+    height: 100vh;
+
+    .info {
+      padding: 0;
+
+      .text {
+        gap: 12px;
+
+        .title {
+          font-size: 20px;
+          text-align: center;
+        }
+
+        .description {
+          text-align: center;
+        }
+      }
+
+      .navigation {
+        display: none;
+      }
+    }
+
+    .center {
+      margin-top: 48px;
+      padding: 0;
+
+      .fadeOut {
+      }
+
+      .fadeIn {
+      }
+    }
+
+    .list {
+      display: none;
+    }
+
+    .slider {
+      display: block;
+
+      .swiper {
+        .card {
+          //max-width: 260px;
+        }
+      }
+    }
+
+    .navigationMobile {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
   .section {
     height: 100%;
     display: flex;
