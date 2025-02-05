@@ -8,61 +8,62 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
 
-.image {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-}
+  .image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
 
-.title {
-  color: #020011;
-  font-family: "Whyte Inktrap", serif;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 110%;
-}
+  .content {
+    .title {
+      color: #020011;
+      font-family: 'Whyte Inktrap', serif;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 110%;
+    }
 
-.description {
-  margin-top: 8px;
-  color: rgba(2, 0, 17, 0.72);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%;
-}
-
-.iconBorder {
-  & > div  {
-    display: flex;
-    & > svg > path{
-      stroke: #EE4503;;
+    .description {
+      margin-top: 8px;
+      color: rgba(2, 0, 17, 0.72);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
     }
   }
-}
 
-.iconTl {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+  .iconBorder {
+    position: absolute;
 
-.iconTr {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+    & > div {
+      display: flex;
 
-.iconBr {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
+      & > svg > path {
+        stroke: #ee4503;
+      }
+    }
 
-.iconBl {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+    &Tl {
+      top: 0;
+      left: 0;
+    }
+
+    &Tr {
+      top: 0;
+      right: 0;
+    }
+
+    &Br {
+      bottom: 0;
+      right: 0;
+    }
+
+    &Bl {
+      bottom: 0;
+      left: 0;
+    }
+  }
 }

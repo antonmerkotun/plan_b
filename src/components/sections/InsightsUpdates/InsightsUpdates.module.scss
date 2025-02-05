@@ -1,6 +1,10 @@
 .section {
   padding: 110px 0 56px;
   position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .info {
     position: absolute;
@@ -10,22 +14,28 @@
     flex-direction: column;
     gap: 16px;
 
-    .title {
-      color: #020011;
-      font-family: 'Whyte Inktrap', serif;
-      font-size: 32px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 120%;
-    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
 
-    .description {
-      color: #12120f;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 120%;
-      max-width: 200px;
+      .title {
+        color: #020011;
+        font-family: 'Whyte Inktrap', serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+      }
+
+      .description {
+        color: #12120f;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+        max-width: 200px;
+      }
     }
 
     .button {
@@ -44,7 +54,7 @@
       transition: transform 0.3s ease;
     }
 
-    .slide:not(.swiper-slide-active) {
+    .slideDeactive {
       transform: scale(0.5) translateY(330px) !important;
     }
   }
@@ -54,5 +64,56 @@
     justify-content: center;
     gap: 25px;
     margin-top: 56px;
+  }
+}
+
+@media (max-width: 769px) {
+  .section {
+    padding: 56px 16px;
+    position: relative;
+
+    .info {
+      position: initial;
+
+      .content {
+        gap: 12px;
+
+        .title {
+          font-size: 20px;
+          text-align: center;
+        }
+
+        .description {
+          max-width: 100%;
+          text-align: center;
+        }
+      }
+
+      .button {
+        margin: 0 auto;
+        min-width: 160px;
+        height: 40px;
+      }
+    }
+
+    .swiper {
+      margin-top: 48px;
+      height: 100%;
+      overflow: visible;
+
+      .slide {
+        width: 291px;
+        height: 321px;
+        transition: transform 0.3s ease;
+      }
+
+      .slideDeactive {
+        transform: none !important;
+      }
+    }
+
+    .navigation {
+      margin-top: 40px;
+    }
   }
 }

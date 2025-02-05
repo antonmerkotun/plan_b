@@ -2,11 +2,15 @@ import { useEffect, useRef, useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
-import Button from '@/components/ui/Button/Button.jsx';
-import FeaturesCard from '@/components/blocks/FeaturesCard/FeaturesCard.jsx';
 import EnergyLiquid from '@/components/blocks/Spline/EnergyLiquid/EnergyLiquid.jsx';
+import FeaturesCard from '@/components/blocks/FeaturesCard/FeaturesCard.jsx';
+import Button from '@/components/ui/Button/Button.jsx';
 import { FEATURES } from '@/data/features.js';
+import borderCounter from '@/assets/icons/top-left.svg';
+import arrow from '@/assets/icons/arrow-white.svg';
 import circle from '@/assets/icons/circle.svg';
 import line from '@/assets/icons/line.svg';
 import styles from '@/components/sections/Features/Features.module.scss';
@@ -18,8 +22,10 @@ const Features = () => {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const triggerRef = useRef(null);
+  const swiperRef = useRef(null);
 
   useEffect(() => {
+    if (window.innerWidth < 769) return;
     const section = sectionRef.current;
     const content = contentRef.current;
     const cards = gsap.utils.toArray(content.children);
@@ -61,7 +67,7 @@ const Features = () => {
 
   return (
     <section id="features-section" ref={sectionRef} className={styles.section}>
-      <div className={styles.left}>
+      <div className={styles.info}>
         <div className={styles.content}>
           <h2 className={styles.title}>Features Overview</h2>
           <p className={styles.description}>
@@ -91,7 +97,7 @@ const Features = () => {
         ))}
         <EnergyLiquid />
       </div>
-      <div ref={contentRef} className={styles.right}>
+      <div ref={contentRef} className={styles.list}>
         {FEATURES.map((card, index) => (
           <FeaturesCard
             key={card.title}
@@ -100,30 +106,61 @@ const Features = () => {
           />
         ))}
       </div>
+      <div className={styles.slider}>
+        <Swiper
+          className={styles.swiper}
+          effect="slide"
+          speed={500}
+          slidesPerView="auto"
+          centeredSlides={true}
+          spaceBetween={16}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        >
+          {FEATURES.map((card, index) => (
+            <SwiperSlide key={card.title} className={styles.card}>
+              <FeaturesCard card={card} isActive={index === activeIndex} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <div className={styles.navigation}>
+          <Button
+            type="slider"
+            icon={arrow}
+            isReverse
+            onClick={() => swiperRef.current?.slidePrev()}
+            isDisabled={activeIndex === 0}
+          />
+          <div className={styles.counter}>
+            <ReactSVG
+              className={`${styles.border} ${styles.borderLeftTop}`}
+              src={borderCounter}
+            />
+            <ReactSVG
+              className={`${styles.border} ${styles.borderLeftBottom}`}
+              src={borderCounter}
+            />
+            <ReactSVG
+              className={`${styles.border} ${styles.borderRightTop}`}
+              src={borderCounter}
+            />
+            <ReactSVG
+              className={`${styles.border} ${styles.borderRightBottom}`}
+              src={borderCounter}
+            />
+            <span className={styles.number}>{activeIndex + 1}</span>
+          </div>
+          <Button
+            icon={arrow}
+            type="slider"
+            onClick={() => swiperRef.current?.slideNext()}
+            isDisabled={activeIndex === FEATURES.length - 1}
+          />
+        </div>
+      </div>
     </section>
   );
 };
 
 export default Features;
-
-// const handlePointClick = (index) => {
-//   if (index === activeIndex) return;
-//   const content = contentRef.current;
-//   const cards = gsap.utils.toArray(content.children);
-//   const cardHeight = cards[index].offsetHeight;
-//   const scrollAmount = Math.abs(index - activeIndex);
-//
-//   const scrollOffset = cardHeight * scrollAmount + 1000 - 16 * cards.length;
-//
-//   if (index > activeIndex) {
-//     window.scrollBy({
-//       top: scrollOffset,
-//       behavior: 'smooth',
-//     });
-//   } else {
-//     window.scrollBy({
-//       top: -scrollOffset,
-//       behavior: 'smooth',
-//     });
-//   }
-// };

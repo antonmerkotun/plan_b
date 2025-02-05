@@ -56,3 +56,9 @@ h3 {
     line-height: 150%;
     letter-spacing: -0.286px;
 }
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 24px;
+    }
+}

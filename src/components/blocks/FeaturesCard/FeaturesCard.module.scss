@@ -1,92 +1,139 @@
 .card {
-	position: relative;
-	width: 100%;
-	height: max-content;
-	padding: 24px;
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-	opacity: 0.7;
+  position: relative;
+  width: 100%;
+  height: max-content;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0.7;
+  border-radius: 4px;
 
-	border-radius: 4px;
+  &Active {
+    opacity: 1;
+    background-color: #ffffff;
+  }
+
+  .icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px 8px;
+    background: #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > div {
+      display: flex;
+    }
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .title {
+      color: #020011;
+      font-family: 'Whyte Inktrap', serif;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 110%;
+    }
+
+    .description {
+      color: rgba(2, 0, 17, 0.72);
+      font-family: Chillax, serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+    }
+  }
+
+  .iconBorder {
+    & > div {
+      display: flex;
+      & > svg > path {
+        stroke: #ee4503;
+      }
+    }
+
+    &Tl {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &Tr {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    &Br {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    &Bl {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .button {
+    height: 40px;
+  }
 }
 
-.cardActive {
-	opacity: 1;
-	background-color: #ffffff;
-}
+@media (max-width: 769px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 25px 24px;
+    background-color: #f9f9f9;
 
-.icon {
-	width: 64px;
-	height: 64px;
-	border-radius: 16px 8px;
-	background: #EAEAEA;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    &Active {
+    }
 
-	& > div {
-		display: flex;
-	}
-}
+    .icon {
+    }
 
-.text {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-}
+    .text {
+      gap: 4px;
 
-.title {
-	color: #020011;
-	font-family: "Whyte Inktrap", serif;
-	font-size: 28px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 110%;
-}
+      .title {
+        font-size: 20px;
+        text-align: center;
+      }
 
-.description {
-	color: rgba(2, 0, 17, 0.72);
-	font-family: Chillax, serif;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 120%;
-}
+      .description {
+        text-align: center;
+      }
+    }
 
-.iconBorder {
-	& > div  {
-		display: flex;
-		& > svg > path{
-		stroke: #EE4503;;
-		}
-	}
-}
+    .iconBorder {
+      &Tl {
+      }
 
-.iconTl {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
+      &Tr {
+      }
 
-.iconTr {
-	position: absolute;
-	top: 0;
-	right: 0;
-}
+      &Br {
+      }
 
-.iconBr {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-}
+      &Bl {
+      }
+    }
 
-.iconBl {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-}
-
-.button {
-	height: 40px;
+    .button {
+    }
+  }
 }

@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import styles from '@/components/sections/FAQ/FAQ.module.scss';
 
-import { FAQS } from '@/data/faq.js';
 import FAQCard from '@/components/blocks/FAQCard/FAQCard.jsx';
 import Button from '@/components/ui/Button/Button.jsx';
+import { FAQS } from '@/data/faq.js';
 import arrow from '@/assets/icons/arrow-white.svg';
+import styles from '@/components/sections/FAQ/FAQ.module.scss';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
+  const swiperRef = useRef();
 
   const handleNext = () => {
     setIsFading(true);
@@ -35,7 +36,7 @@ const FAQ = () => {
 
   return (
     <section id="faq-section" className={styles.section}>
-      <div className={styles.left}>
+      <div className={styles.info}>
         <div className={styles.text}>
           <h1 className={styles.title}>Frequently Asked Questions</h1>
           <p className={styles.description}>
@@ -64,9 +65,13 @@ const FAQ = () => {
           <FAQCard isActive card={FAQS[activeIndex]} />
         </div>
       </div>
-      <div className={styles.right}>
+      <div className={styles.list}>
         {FAQS.map((card, index) => (
-          <div key={card.question} onClick={() => handleCardClick(index)}>
+          <div
+            key={card.question}
+            onClick={() => handleCardClick(index)}
+            className={styles.card}
+          >
             <FAQCard
               card={card}
               isSmall={true}
@@ -74,6 +79,42 @@ const FAQ = () => {
             />
           </div>
         ))}
+      </div>
+      <div className={styles.slider}>
+        <Swiper
+          className={styles.swiper}
+          speed={500}
+          slidesPerView={1.5}
+          spaceBetween={10}
+          centeredSlides={true}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        >
+          {FAQS.map((card, index) => (
+            <SwiperSlide key={card.question} className={styles.card}>
+              <FAQCard
+                card={card}
+                isSmall={true}
+                isActive={activeIndex === index}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className={styles.navigationMobile}>
+        <Button
+          type="slider"
+          icon={arrow}
+          isReverse
+          onClick={() => swiperRef.current?.slidePrev()}
+          isDisabled={activeIndex === 0}
+        />
+        <Button
+          type="slider"
+          icon={arrow}
+          onClick={() => swiperRef.current?.slideNext()}
+          isDisabled={activeIndex === FAQS.length - 1}
+        />
       </div>
     </section>
   );

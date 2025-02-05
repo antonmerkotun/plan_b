@@ -1,191 +1,206 @@
 .section {
-	position: relative;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	overflow: hidden;
-	height: 100vh;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1.7fr 1fr;
+  position: relative;
+
+  .info {
+    padding: 56px 64px;
+
+    .title {
+      padding-right: 150px;
+      color: #020011;
+      font-family: 'Whyte Inktrap', serif;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+    }
+
+    .description {
+      color: #12120f;
+      font-family: Chillax, serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      padding-right: 65px;
+    }
+  }
+
+  .center {
+    position: relative;
+
+    .point {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+
+      &:nth-child(1) {
+        transform: rotate(30deg);
+        top: 510px;
+        left: 100px;
+      }
+
+      &:nth-child(2) {
+        transform: rotate(12deg);
+        top: 545px;
+        left: 200px;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-12deg);
+        top: 545px;
+        right: 200px;
+      }
+
+      &:nth-child(4) {
+        transform: rotate(-30deg);
+        top: 510px;
+        right: 100px;
+      }
+
+      .icon {
+        &Active {
+          & > div > svg > circle {
+            fill: #ee4503;
+          }
+        }
+      }
+
+      .number {
+        color: #717171;
+        font-size: 56px;
+        font-family: 'Whyte Inktrap', serif;
+        transition: color 300ms ease-in-out;
+
+        &Active {
+          color: #ee4503;
+        }
+      }
+    }
+  }
+
+  .list {
+    padding: 0 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 10;
+  }
+
+  .slider {
+    display: none;
+  }
+
+  .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    & > div {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    top: 100px;
+    width: 230px;
+    height: 230px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      transform: rotate(125deg);
+
+      & > div > svg {
+        width: 230px;
+        height: 230px;
+        transform-origin: 0 50%;
+      }
+    }
+  }
 }
 
-.left {
-	width: 27%;
-	padding: 56px 64px 0;
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
+@media (max-width: 769px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+    padding: 56px 16px;
+
+    .info {
+      padding: 0;
+
+      .title {
+        font-size: 20px;
+        text-align: center;
+        padding: 0;
+      }
+
+      .description {
+        text-align: center;
+        padding: 0;
+      }
+    }
+
+    .center {
+      .point {
+        &:nth-child(1) {
+          top: 0;
+        }
+
+        &:nth-child(2) {
+          top: 0;
+        }
+
+        &:nth-child(3) {
+          top: 0;
+        }
+
+        &:nth-child(4) {
+          top: 0;
+        }
+
+        .icon {
+          &Active {
+          }
+        }
+
+        .number {
+          &Active {
+          }
+        }
+      }
+    }
+
+    .list {
+      display: none;
+    }
+
+    .slider {
+      display: block;
+      margin-top: auto;
+
+      .card {
+        width: 70%;
+      }
+    }
+
+    .layer {
+    }
+
+    .arrow {
+    }
+  }
 }
-
-.content {
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-	padding-right: 60px;
-}
-
-.title {
-	padding-right: 50px;
-	color: #020011;
-	font-family: "Whyte Inktrap", serif;
-	font-size: 32px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 120%;
-}
-
-.description {
-	color: #12120F;
-	font-family: Chillax, serif;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 120%;
-}
-
-
-.center {
-	position: relative;
-	width: 46%;
-}
-
-.layer {
-	position:  absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: -1;
-
-	& > div {
-		display: flex;
-		justify-content: center;
-	}
-}
-
-.arrow {
-	position: absolute;
-	top: 100px;
-	width: 230px;
-	height: 230px;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-
-	& > div {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-		transform: rotate(125deg);
-
-		& > div > svg {
-
-			width: 230px;
-			height: 230px;
-			transform-origin: 0 50%;
-		}
-	}
-}
-
-.numbers {
-	color: #717171;
-	font-size: 56px;
-	font-family: "Whyte Inktrap", serif;
-	transition: color 300ms ease-in-out;
-}
-
-.activeNumber {
-	color: #EE4503;
-}
-
-.bottle {
-	height: 500px;
-	width: 500px;
-}
-
-.right {
-	width: 27%;
-	padding: 0 64px;
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-	z-index: 10;
-}
-
-.point {
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 32px;
-}
-
-.point:nth-child(1) {
-	top: 500px;
-	left: 100px;
-}
-
-.point:nth-child(2) {
-	top: 540px;
-	left: 200px;
-}
-
-.point:nth-child(3) {
-	top: 540px;
-	right: 200px;
-}
-
-.point:nth-child(4) {
-	top: 500px;
-	right: 100px;
-}
-
-.pointTitle{
-	color: rgba(2, 0, 17, 0.50);
-	font-family: "Whyte Inktrap", serif;
-	font-size: 20px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 120%;
-
-	&:hover {
-		cursor: default;
-		color: #EE4503;
-	}
-}
-
-.activeTitle {
-	color: #020011;
-}
-
-.pointTitle:hover + .icon {
-	& > div > svg{
-		& > rect:nth-child(1) {
-			fill: #020011;
-		}
-
-		& > rect:nth-child(2) {
-			stroke: #020011;
-		}
-		& > circle{
-			fill: #EE4503
-		}
-	}
-
-}
-
-.activeIcon {
-	& > div > svg > circle{
-		fill: #EE4503
-	}
-}
-
-//.progressBar::before {
-//	content: '';
-//	position: absolute;
-//	top: 50%;
-//	left: 0;
-//	width: 100%;
-//	height: 100%;
-//	border-top: 1px solid black;
-//	border-radius: 150px 150px 0 0;
-//	transform: translateY(-50%);
-//}

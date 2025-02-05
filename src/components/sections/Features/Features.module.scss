@@ -1,157 +1,293 @@
 .section {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1.7fr 1fr;
 
-.left {
-  width: 27%;
-  padding: 56px 64px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 56px 64px 0;
 
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
 
-.title {
-  color: #020011;
-  font-family: 'Whyte Inktrap', serif;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%;
-}
+      .title {
+        color: #020011;
+        font-family: 'Whyte Inktrap', serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+      }
 
-.description {
-  color: #12120f;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%;
-  font-family: Chillax, serif;
-}
+      .description {
+        color: #12120f;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+        font-family: Chillax, serif;
+      }
+    }
 
-.center {
-  position: relative;
-  width: 46%;
-}
-
-.bottle {
-  height: 500px;
-  width: 500px;
-}
-
-.right {
-  width: 27%;
-  padding: 0 64px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  overflow: scroll;
-  height: 100%;
-}
-
-.point {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.point:nth-child(1) {
-  top: 153px;
-  left: 20px;
-
-  .line {
-    top: 35px;
-    left: 85px;
-
-    & > div > svg {
-      width: 140px;
+    .button {
+      width: 202px;
+      height: 48px;
     }
   }
-}
 
-.point:nth-child(2) {
-  bottom: 300px;
-  left: 59px;
+  .center {
+    position: relative;
 
-  .line {
-    top: 32px;
-    left: 40px;
+    .point {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-    & > div > svg {
-      width: 120px;
+      &:nth-child(1) {
+        top: 153px;
+        left: 20px;
+
+        .line {
+          top: 35px;
+          left: 85px;
+
+          & > div > svg {
+            width: 140px;
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        bottom: 300px;
+        left: 59px;
+
+        .line {
+          top: 32px;
+          left: 40px;
+
+          & > div > svg {
+            width: 120px;
+          }
+        }
+      }
+
+      &:nth-child(3) {
+        bottom: 300px;
+        right: 39px;
+
+        .line {
+          transform: scaleX(-1);
+          top: 34px;
+          right: 50px;
+
+          & > div > svg {
+            width: 130px;
+          }
+        }
+      }
+
+      &:nth-child(4) {
+        top: 153px;
+        right: 34px;
+
+        .line {
+          transform: scaleX(-1);
+          top: 34px;
+          right: 60px;
+
+          & > div > svg {
+            width: 150px;
+          }
+        }
+      }
+
+      .pointTitle {
+        color: rgba(2, 0, 17, 0.5);
+        font-family: 'Whyte Inktrap', serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+      }
+
+      .activeTitle {
+        color: #020011;
+      }
+
+      .icon {
+      }
+
+      .activeIcon {
+        & > div > svg > circle {
+          fill: #ee4503;
+        }
+      }
+
+      .line {
+        position: absolute;
+      }
+
+      .activeLine {
+        & > div > svg > path {
+          stroke: #020011;
+        }
+      }
     }
   }
+
+  .list {
+    padding: 0 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow: scroll;
+    height: 100%;
+  }
+
+  .slider {
+    display: none;
+  }
 }
 
-.point:nth-child(3) {
-  bottom: 300px;
-  right: 39px;
+@media (max-width: 769px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+    padding: 56px 16px;
+    height: 100%;
 
-  .line {
-    transform: scaleX(-1);
-    top: 34px;
-    right: 50px;
+    .info {
+      padding: 0;
+      gap: 16px;
 
-    & > div > svg {
-      width: 130px;
+      .content {
+        gap: 12px;
+
+        .title {
+          font-size: 20px;
+          text-align: center;
+        }
+
+        .description {
+          text-align: center;
+        }
+      }
+
+      .button {
+        margin: 0 auto;
+        width: 160px;
+        height: 40px;
+        font-size: 16px;
+      }
+    }
+
+    .center {
+      margin-top: 48px;
+      max-height: 314px;
+
+      .point {
+        .pointTitle {
+          font-size: 18px;
+        }
+
+        .activeTitle {
+        }
+
+        .icon {
+        }
+
+        .activeIcon {
+        }
+
+        .line {
+        }
+
+        .activeLine {
+        }
+      }
+    }
+
+    .list {
+      display: none;
+    }
+
+    .slider {
+      display: block;
+      margin-top: 40px;
+
+      .swiper {
+        & > div {
+          align-items: center;
+        }
+      }
+
+      .card {
+        width: 70%;
+      }
+
+      .navigation {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 32px;
+
+        .counter {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 80px;
+          height: 80px;
+          position: relative;
+
+          .number {
+            color: #020011;
+            font-family: 'Whyte Inktrap', serif;
+            font-size: 56px;
+            margin-top: 20px;
+          }
+
+          .border {
+            position: absolute;
+
+            &LeftTop {
+              top: 0;
+              left: 0;
+            }
+
+            &LeftBottom {
+              left: 0;
+              bottom: 0;
+              transform: rotate(270deg);
+            }
+
+            &RightTop {
+              top: 0;
+              right: 0;
+              transform: rotate(90deg);
+            }
+
+            &RightBottom {
+              bottom: 0;
+              right: 0;
+              transform: rotate(180deg);
+            }
+
+            & > div {
+              display: flex;
+
+              & > svg > path {
+                stroke: #c2c2c2;
+              }
+            }
+          }
+        }
+      }
     }
   }
-}
-
-.point:nth-child(4) {
-  top: 153px;
-  right: 34px;
-
-  .line {
-    transform: scaleX(-1);
-    top: 34px;
-    right: 60px;
-
-    & > div > svg {
-      width: 150px;
-    }
-  }
-}
-
-.pointTitle {
-  color: rgba(2, 0, 17, 0.5);
-  font-family: 'Whyte Inktrap', serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%;
-}
-
-.activeTitle {
-  color: #020011;
-}
-
-.activeIcon {
-  & > div > svg > circle {
-    fill: #ee4503;
-  }
-}
-
-.line {
-  position: absolute;
-}
-
-.activeLine {
-  & > div > svg > path {
-    stroke: #020011;
-  }
-}
-
-.button {
-  width: 202px;
-  height: 48px;
 }

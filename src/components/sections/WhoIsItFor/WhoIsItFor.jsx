@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
+import { ReactSVG } from 'react-svg';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import FeaturesCard from '@/components/blocks/FeaturesCard/FeaturesCard.jsx';
-import { ReactSVG } from 'react-svg';
 import { WHOISITFOR } from '@/data/who-is-it-for.js';
 import layer from '@/assets/icons/layer.svg';
 import arrow from '@/assets/icons/arrow-black.svg';
 import circle from '@/assets/icons/circle.svg';
 import styles from '@/components/sections/WhoIsItFor/WhoIsItFor.module.scss';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FEATURES } from '@/data/features.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,12 +19,12 @@ const WhoIsItFor = () => {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const arrowRef = useRef(null);
-  const progressRef = useRef(null);
+  const swiperRef = useRef(null);
 
   useEffect(() => {
+    if (window.innerWidth < 769) return;
     const section = sectionRef.current;
     const content = contentRef.current;
-    const progress = progressRef.current;
     const cards = gsap.utils.toArray(content.children);
     const cardHeight = cards[0].offsetHeight;
     const arrow = arrowRef.current.children[0].children[0];
@@ -50,19 +52,6 @@ const WhoIsItFor = () => {
       },
     });
 
-    // gsap.set(progress, {
-    //   position: 'absolute',
-    //   top: '-331',
-    //   width: '896',
-    //   height: '896',
-    //   left: 0,
-    //   right: 0,
-    //   margin: '0 auto',
-    //   borderRadius: '50%',
-    //   // background: `#4C8D91`,
-    //   zIndex: 0,
-    // });
-
     trigger
       .set(content, {
         y: startScroll,
@@ -84,31 +73,29 @@ const WhoIsItFor = () => {
       ref={sectionRef}
       className={styles.section}
     >
-      <div className={styles.left}>
-        <div className={styles.content}>
-          <h2 className={styles.title}>Who’s It For?</h2>
-          <p className={styles.description}>
-            Designed for businesses, miners, developers, and crypto enthusiasts
-            looking to innovate and grow
-          </p>
-        </div>
+      <div className={styles.info}>
+        <h2 className={styles.title}>Who’s It For?</h2>
+        <p className={styles.description}>
+          Designed for businesses, miners, developers, and crypto enthusiasts
+          looking to innovate and grow
+        </p>
       </div>
       <div className={styles.center}>
         {WHOISITFOR.map((card, index) => (
           <div key={card.title} className={styles.point}>
             <ReactSVG
-              className={`${styles.icon} ${index === activeIndex ? styles.activeIcon : ''}`}
+              className={`${styles.icon} ${index === activeIndex ? styles.iconActive : ''}`}
               src={circle}
             />
             <span
-              className={`${styles.numbers}  ${index === activeIndex ? styles.activeNumber : ''}`}
+              className={`${styles.number}  ${index === activeIndex ? styles.numberActive : ''}`}
             >
               0{index + 1}
             </span>
           </div>
         ))}
       </div>
-      <div ref={contentRef} className={styles.right}>
+      <div ref={contentRef} className={styles.list}>
         {WHOISITFOR.map((card, index) => (
           <FeaturesCard
             key={card.title}
@@ -120,8 +107,30 @@ const WhoIsItFor = () => {
           />
         ))}
       </div>
+      <div className={styles.slider}>
+        <Swiper
+          className={styles.swiper}
+          effect="slide"
+          speed={500}
+          slidesPerView="auto"
+          centeredSlides={true}
+          spaceBetween={16}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        >
+          {WHOISITFOR.map((card, index) => (
+            <SwiperSlide key={card.title} className={styles.card}>
+              <FeaturesCard
+                card={card}
+                isButton
+                isActive={index === activeIndex}
+                buttonText={'Start Exploring'}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
       <ReactSVG className={styles.layer} src={layer} />
-      {/*<div ref={progressRef} className={styles.progressBar}></div>*/}
       <div ref={arrowRef} className={styles.arrow}>
         <ReactSVG src={arrow} />
       </div>

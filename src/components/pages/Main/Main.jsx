@@ -13,14 +13,14 @@ const Main = () => {
   return (
     <main className={styles.main}>
       <Cube />
-      <Benefits />
-      <Features />
-      <WhoIsItFor />
-      <HowItWorks />
-      <FAQ />
-      <Ecosystem />
-      <InsightsUpdates />
-      <ReadyToExperience />
+      {/*<Benefits />*/}
+      {/*<Features />*/}
+      {/*<WhoIsItFor />*/}
+      {/*<HowItWorks />*/}
+      {/*<FAQ />*/}
+      {/*<Ecosystem />*/}
+      {/*<InsightsUpdates />*/}
+      {/*<ReadyToExperience />*/}
     </main>
   );
 };
