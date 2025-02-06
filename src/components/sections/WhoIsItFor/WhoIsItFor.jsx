@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FeaturesCard from '@/components/blocks/FeaturesCard/FeaturesCard.jsx';
 import { WHOISITFOR } from '@/data/who-is-it-for.js';
 import layer from '@/assets/icons/layer.svg';
+import layerTablet from '@/assets/icons/layer-tablet.svg';
 import arrow from '@/assets/icons/arrow-black.svg';
 import circle from '@/assets/icons/circle.svg';
 import styles from '@/components/sections/WhoIsItFor/WhoIsItFor.module.scss';
@@ -89,6 +90,18 @@ const WhoIsItFor = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isTabletScreen && arrowRef.current) {
+      const arrow = arrowRef.current.children[0].children[0];
+
+      gsap.to(arrow, {
+        rotation: -activeIndex * 30, // Кут обертання в залежності від індексу
+        duration: 0.5, // Гладка анімація
+        ease: 'power1.out',
+      });
+    }
+  }, [activeIndex, isTabletScreen]);
+
   return (
     <section
       id="who-is-it-for-section"
@@ -167,6 +180,7 @@ const WhoIsItFor = () => {
         </Swiper>
       </div>
       <ReactSVG className={styles.layer} src={layer} />
+      <ReactSVG className={styles.layerTablet} src={layerTablet} />
       <div ref={arrowRef} className={styles.arrow}>
         <ReactSVG src={arrow} />
       </div>
