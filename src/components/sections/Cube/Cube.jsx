@@ -1,10 +1,13 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { ReactSVG } from 'react-svg';
+import { Link } from 'react-scroll';
 
 import CubeSpline from '@/components/blocks/Spline/Cube/Cube.jsx';
 import bitcoin from '@/assets/icons/bitcoin.svg';
 import buttonScroll from '@/assets/icons/button-scroll.svg';
 import styles from '@/components/sections/Cube/Cube.module.scss';
+import SocialMedia from '@/components/ui/SocialMedia/SocialMedia.jsx';
+import Navigation from '@/components/ui/Navigation/Navigation.jsx';
 
 const items = [
   { title: 'Potential TVL', description: '10K BTC' },
@@ -15,31 +18,6 @@ const items = [
 
 const Cube = () => {
   const sectionRef = useRef(null);
-
-  const scrollToBenefits = () => {
-    const benefitsSection = document.getElementById('benefits-section');
-    if (!benefitsSection) return;
-    benefitsSection.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    const handleScroll = (event) => {
-      if (event.deltaY > 0) {
-        // scrollToBenefits();
-      }
-    };
-
-    const section = sectionRef.current;
-    if (section) {
-      section.addEventListener('wheel', handleScroll);
-    }
-
-    return () => {
-      if (section) {
-        section.removeEventListener('wheel', handleScroll);
-      }
-    };
-  }, []);
 
   return (
     <section id="cube-section" ref={sectionRef} className={styles.section}>
@@ -54,12 +32,12 @@ const Cube = () => {
           <CubeSpline />
         </div>
         <ReactSVG className={styles.bitcoin} src={bitcoin} />
-        <ReactSVG
-          className={styles.button}
-          src={buttonScroll}
-          onClick={scrollToBenefits}
-        />
+
+        <Link to="benefits-section" smooth={true} offset={0} duration={500}>
+          <ReactSVG src={buttonScroll} className={styles.button} />
+        </Link>
       </div>
+
       <div className={styles.list}>
         {items.map((item) => (
           <div key={item.title} className={styles.item}>
@@ -68,11 +46,20 @@ const Cube = () => {
           </div>
         ))}
       </div>
-      <ReactSVG
+
+      <Link
+        to="benefits-section"
+        smooth={true}
+        offset={0}
+        duration={500}
         className={styles.buttonMobile}
-        src={buttonScroll}
-        onClick={scrollToBenefits}
-      />
+      >
+        <ReactSVG src={buttonScroll} />
+      </Link>
+      <Navigation />
+      <div className={styles.socialMedia}>
+        <SocialMedia />
+      </div>
     </section>
   );
 };

@@ -231,12 +231,12 @@
 @media (max-width: 768px) {
   .card {
     &Active {
-      padding: 16px 24px 50px;
+      padding: 16px 24px 65px;
       background-image: url('@/assets/icons/faq-card-mobile.svg');
       background-position: center;
       background-color: transparent;
       height: 372px;
-      justify-content: space-between;
+      justify-content: space-around;
 
       .question {
         padding-right: 90px;

@@ -32,8 +32,12 @@ const FAQ = () => {
   };
 
   const handleCardClick = (index) => {
+    setIsFading(true);
     if (index === activeIndex) return;
-    setActiveIndex(index);
+    setTimeout(() => {
+      setActiveIndex(index);
+      setIsFading(false);
+    }, 300);
   };
 
   return (
