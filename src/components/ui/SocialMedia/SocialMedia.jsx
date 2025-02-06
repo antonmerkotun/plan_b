@@ -1,4 +1,3 @@
-import React from 'react';
 import { ReactSVG } from 'react-svg';
 
 import { MEDIA } from '@/components/ui/SocialMedia/socialMedia.data';

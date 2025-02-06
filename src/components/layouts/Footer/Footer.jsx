@@ -1,36 +1,55 @@
-import React from 'react';
 import { ReactSVG } from 'react-svg';
 
 import Button from '@/components/ui/Button/Button';
 import SocialMedia from '@/components/ui/SocialMedia/SocialMedia';
 import { useModal } from '@/context/ModalContext.jsx';
+import { MENU } from '@/data/header.js';
 import envelope from '@/assets/icons/envelope.svg';
 import logo from '@/assets/icons/logo.svg';
-import { MENU } from '@/data/header.js';
-import '@/components/layouts/Footer/Footer.scss';
+import styles from '@/components/layouts/Footer/Footer.module.scss';
 
 const Footer = () => {
   const { openModal } = useModal();
 
   return (
-    <footer className="footer">
-      <div className="footer__social">
-        <ReactSVG className="footer__social-logo" src={logo} />
-        <SocialMedia styles={{ position: 'relative', flexDirection: 'row' }} />
+    <footer className={styles.footer}>
+      <div className={styles.left}>
+        <ReactSVG className={styles.logo} src={logo} />
+        <SocialMedia
+          styles={{
+            position: 'relative',
+            flexDirection: 'row',
+            right: 0,
+            top: 0,
+            justifyContent: 'start',
+          }}
+        />
+        <div className={styles.contentMobile}>
+          <h3 className={styles.title}>Subscribe to our newsletters!</h3>
+          <div className={styles.field}>
+            <input
+              className={styles.input}
+              type="email"
+              placeholder="Your email"
+            />
+            <Button
+              onClick={openModal}
+              icon={envelope}
+              type={'primary'}
+              className={styles.button}
+            />
+          </div>
+        </div>
       </div>
-
-      <div className="footer__navigation">
+      <div className={styles.navigation}>
         {MENU.map((menuItem, index) => (
           <div key={index}>
-            <h3 className="footer__navigation-name">{menuItem.name}</h3>
-            <ul className="footer__navigation-list">
+            <h3 className={styles.name}>{menuItem.name}</h3>
+            <ul className={styles.list}>
               {menuItem.subMenu
                 ? menuItem.subMenu.map((subItem, subIndex) => (
-                    <li className="footer__navigation-item" key={subIndex}>
-                      <a
-                        className="footer__navigation-link"
-                        href={subItem.link}
-                      >
+                    <li className={styles.item} key={subIndex}>
+                      <a className={styles.link} href={subItem.link}>
                         {subItem.name}
                       </a>
                     </li>
@@ -40,36 +59,30 @@ const Footer = () => {
           </div>
         ))}
       </div>
-
-      <div className="footer__subscribe">
-        <div className="footer__subscribe-content">
-          <h3 className="footer__subscribe-content-title">
-            Subscribe to our newsletters!
-          </h3>
-          <div className="footer__subscribe-content-field">
+      <div className={styles.info}>
+        <div className={styles.content}>
+          <h3 className={styles.title}>Subscribe to our newsletters!</h3>
+          <div className={styles.field}>
             <input
-              className="footer__subscribe-content-field-input"
+              className={styles.input}
               type="email"
               placeholder="Your email"
             />
             <Button
               onClick={openModal}
-              width={'56px'}
-              height={'44px'}
               icon={envelope}
               type={'primary'}
-              styles={{ borderRadius: '0 16px 4px 0' }}
-              className="footer__subscribe-content-field-button"
+              className={styles.button}
             />
           </div>
         </div>
-        <div className="footer__subscribe-terms">
-          <div className="footer__subscribe-terms-links">
+        <div className={styles.terms}>
+          <div className={styles.links}>
             <a href="#">Terms of Use</a>
             <span>|</span>
             <a href="#">Privacy Policy</a>
           </div>
-          <h4 className="footer__subscribe-terms-copyright">©Plan B 2025</h4>
+          <h4 className={styles.copyright}>©Plan B 2025</h4>
         </div>
       </div>
     </footer>

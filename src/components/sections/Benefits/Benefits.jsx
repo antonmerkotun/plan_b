@@ -97,7 +97,6 @@ const Benefits = () => {
     // const rect = sectionRef.current.getBoundingClientRect();
     // const distanceToTop = rect.top + window.scrollY;
     //
-    // // Прокручуємо до початку секції
     // window.scrollBy({
     //   top: 6000,
     //   behavior: 'smooth',

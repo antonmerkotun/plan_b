@@ -38,12 +38,10 @@ const WhoIsItFor = () => {
     const path = progressLine.querySelector('path');
 
     const pathLength = path.getTotalLength();
-    const segmentLength = pathLength * 0.1; // Довжина "світіння" (наприклад, 10% від всього шляху)
-
-    console.log(pathLength);
+    const segmentLength = pathLength * 0.1;
 
     gsap.set(path, {
-      strokeDasharray: `${100}, ${450}`, // Видимий сегмент
+      strokeDasharray: `${100}, ${450}`,
       strokeDashoffset: pathLength,
     });
 

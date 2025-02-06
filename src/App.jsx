@@ -17,8 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
       </Routes>
-      {/*<Footer />*/}
-      {/*<CommunityWrapper />*/}
+      <Footer />
+      <CommunityWrapper />
     </>
   );
 }
