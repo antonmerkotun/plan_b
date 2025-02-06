@@ -34,18 +34,18 @@ const WhoIsItFor = () => {
     const startScroll = window.innerHeight / 2 - cardHeight / 2;
     const endScroll = window.innerHeight / 2 + gap * cards.length;
 
-    // const progressLine = progressPathRef.current;
-    // const path = progressLine.querySelector('path');
-    //
-    // const pathLength = path.getTotalLength();
-    // const segmentLength = pathLength * 0.1; // Довжина "світіння" (наприклад, 10% від всього шляху)
-    //
-    // console.log(pathLength);
-    //
-    // gsap.set(path, {
-    //   strokeDasharray: `${100}, ${450}`, // Видимий сегмент
-    //   strokeDashoffset: pathLength,
-    // });
+    const progressLine = progressPathRef.current;
+    const path = progressLine.querySelector('path');
+
+    const pathLength = path.getTotalLength();
+    const segmentLength = pathLength * 0.1; // Довжина "світіння" (наприклад, 10% від всього шляху)
+
+    console.log(pathLength);
+
+    gsap.set(path, {
+      strokeDasharray: `${100}, ${450}`, // Видимий сегмент
+      strokeDashoffset: pathLength,
+    });
 
     const trigger = gsap.timeline({
       paused: true,
@@ -65,13 +65,13 @@ const WhoIsItFor = () => {
             rotation: -self.progress * 80,
           });
 
-          // const progressPosition =
-          //   pathLength * adjustedProgress - segmentLength / 2;
-          // gsap.to(path, {
-          //   strokeDashoffset: pathLength - progressPosition,
-          //   stroke: '#EE4503',
-          //   ease: 'none',
-          // });
+          const progressPosition =
+            pathLength * adjustedProgress - segmentLength / 2;
+          gsap.to(path, {
+            strokeDashoffset: pathLength - progressPosition,
+            stroke: '#EE4503',
+            ease: 'none',
+          });
         },
       },
     });

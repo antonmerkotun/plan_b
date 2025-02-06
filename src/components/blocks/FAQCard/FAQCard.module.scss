@@ -148,18 +148,144 @@
 
 @media (max-width: 1280px) {
   .card {
+    &Active {
+      position: relative;
+      padding: 0 24px 10px;
+      background-color: #ee4503;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .question {
+        font-size: 20px;
+        padding-right: 0;
+      }
+
+      .answer {
+        font-size: 16px;
+      }
+
+      .type {
+      }
+
+      .block {
+        padding: 8px 20px;
+
+        &Icon {
+          &Tl {
+          }
+
+          &Tr {
+          }
+
+          &Br {
+          }
+
+          &Bl {
+          }
+        }
+      }
+    }
+
     &Small {
+      height: 76px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 16px 0;
+
+      .question {
+        font-size: 18px;
+      }
+
       &Bg {
         top: -19px;
+      }
+
+      &Active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: #ee4503;
+        padding: 0 16px 0;
+        height: 76px;
+        border-radius: 0 0 8px 8px;
+
+        .question {
+          font-size: 18px;
+        }
       }
     }
 
     &BgTop {
-      top: -55px;
+      top: -58px;
     }
 
     &BgBottom {
       bottom: -30px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    &Active {
+      padding: 16px 24px 50px;
+      background-image: url('@/assets/icons/faq-card-mobile.svg');
+      background-position: center;
+      background-color: transparent;
+      height: 372px;
+      justify-content: space-between;
+
+      .question {
+        padding-right: 90px;
+      }
+
+      .answer {
+        font-size: 16px;
+      }
+
+      .type {
+        bottom: 5px;
+      }
+
+      .block {
+        &Icon {
+          &Tl {
+          }
+
+          &Tr {
+          }
+
+          &Br {
+          }
+
+          &Bl {
+          }
+        }
+      }
+    }
+
+    &Small {
+      .question {
+      }
+
+      &Bg {
+      }
+
+      &Active {
+        .question {
+        }
+      }
+    }
+
+    &BgTop {
+      display: none;
+    }
+
+    &BgBottom {
+      display: none;
     }
   }
 }

@@ -7,10 +7,12 @@ import Button from '@/components/ui/Button/Button.jsx';
 import { FAQS } from '@/data/faq.js';
 import arrow from '@/assets/icons/arrow-white.svg';
 import styles from '@/components/sections/FAQ/FAQ.module.scss';
+import { useMediaQuery } from 'react-responsive';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
+  const isTabletScreen = useMediaQuery({ maxWidth: 1024 });
   const swiperRef = useRef();
 
   const handleNext = () => {
@@ -84,8 +86,8 @@ const FAQ = () => {
         <Swiper
           className={styles.swiper}
           speed={500}
-          slidesPerView={1.5}
-          spaceBetween={10}
+          slidesPerView={'auto'}
+          spaceBetween={isTabletScreen ? 32 : 16}
           centeredSlides={true}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
@@ -100,21 +102,21 @@ const FAQ = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-      <div className={styles.navigationMobile}>
-        <Button
-          type="slider"
-          icon={arrow}
-          isReverse
-          onClick={() => swiperRef.current?.slidePrev()}
-          isDisabled={activeIndex === 0}
-        />
-        <Button
-          type="slider"
-          icon={arrow}
-          onClick={() => swiperRef.current?.slideNext()}
-          isDisabled={activeIndex === FAQS.length - 1}
-        />
+        <div className={styles.navigationMobile}>
+          <Button
+            type="slider"
+            icon={arrow}
+            isReverse
+            onClick={() => swiperRef.current?.slidePrev()}
+            isDisabled={activeIndex === 0}
+          />
+          <Button
+            type="slider"
+            icon={arrow}
+            onClick={() => swiperRef.current?.slideNext()}
+            isDisabled={activeIndex === FAQS.length - 1}
+          />
+        </div>
       </div>
     </section>
   );

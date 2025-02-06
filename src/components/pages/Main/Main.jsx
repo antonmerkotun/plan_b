@@ -19,8 +19,8 @@ const Main = () => {
       {/*<HowItWorks />*/}
       <FAQ />
       {/*<Ecosystem />*/}
-      {/*<InsightsUpdates />*/}
-      {/*<ReadyToExperience />*/}
+      <InsightsUpdates />
+      <ReadyToExperience />
     </main>
   );
 };

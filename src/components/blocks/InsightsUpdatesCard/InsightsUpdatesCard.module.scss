@@ -67,3 +67,25 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .card {
+    .image {
+      max-width: 477px;
+      max-height: 240px;
+      border-radius: 8px;
+    }
+
+    .content {
+      .title {
+        font-size: 20px;
+      }
+
+      .description {
+      }
+    }
+
+    .iconBorder {
+    }
+  }
+}

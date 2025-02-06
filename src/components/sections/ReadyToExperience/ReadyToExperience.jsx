@@ -10,8 +10,10 @@ const ReadyToExperience = () => {
   return (
     <section id="ready-to-experience-section" className={styles.section}>
       <div className={styles.text}>
-        <h1>Ready to Experience the Future of Blockchain?</h1>
-        <p>Let’s Start Exploring</p>
+        <h1 className={styles.title}>
+          Ready to Experience the Future of Blockchain?
+        </h1>
+        <p className={styles.description}>Let’s Start Exploring</p>
       </div>
       <ReactSVG className={styles.bitcoin} src={bitcoin} />
       <ReactSVG className={styles.unionLeft} src={unionLeft} />

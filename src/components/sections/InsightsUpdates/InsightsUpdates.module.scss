@@ -67,6 +67,57 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .section {
+    padding: 56px 16px;
+    position: relative;
+
+    .info {
+      position: initial;
+
+      .content {
+        gap: 12px;
+
+        .title {
+          font-size: 28px;
+          text-align: center;
+        }
+
+        .description {
+          max-width: 100%;
+          text-align: center;
+        }
+      }
+
+      .button {
+        margin: 0 auto;
+        min-width: 160px;
+        height: 40px;
+      }
+    }
+
+    .swiper {
+      margin-top: 48px;
+      height: 100%;
+      overflow: visible;
+
+      .slide {
+        max-width: 560px;
+        max-height: 378px;
+        transition: transform 0.3s ease;
+      }
+
+      .slideDeactive {
+        //transform: none !important;
+      }
+    }
+
+    .navigation {
+      margin-top: 40px;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 56px 16px;
@@ -108,7 +159,7 @@
       }
 
       .slideDeactive {
-        transform: none !important;
+        transform: scale(0.9) translateY(0px) !important;
       }
     }
 
