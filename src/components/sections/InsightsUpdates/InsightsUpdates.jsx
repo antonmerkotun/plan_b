@@ -33,6 +33,7 @@ const InsightsUpdates = () => {
           observer={true}
           observeParents={true}
           centeredSlides={true}
+          // loop={true}
           slidesPerView={'auto'}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           allowTouchMove={false}
