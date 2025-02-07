@@ -20,7 +20,7 @@ export const useAutoScrollToSection = () => {
 
             window.scrollTo({
               top: scrollPosition,
-              behavior: 'auto',
+              behavior: 'smooth',
             });
           }
         });
