@@ -35,17 +35,6 @@ const WhoIsItFor = () => {
     const startScroll = window.innerHeight / 2 - cardHeight / 2;
     const endScroll = window.innerHeight / 2 + gap * cards.length;
 
-    const progressLine = progressPathRef.current;
-    const path = progressLine.querySelector('path');
-
-    const pathLength = path.getTotalLength();
-    const segmentLength = pathLength * 0.1;
-
-    gsap.set(path, {
-      strokeDasharray: `${100}, ${450}`,
-      strokeDashoffset: pathLength,
-    });
-
     const trigger = gsap.timeline({
       paused: true,
       scrollTrigger: {
@@ -56,20 +45,11 @@ const WhoIsItFor = () => {
         scrub: true,
         pin: true,
         onUpdate: (self) => {
-          const adjustedProgress = Math.min(self.progress, 1);
           const activeIndex = Math.floor(self.progress * cards.length);
           setActiveIndex(activeIndex);
 
           gsap.to(arrow, {
             rotation: -self.progress * 80,
-          });
-
-          const progressPosition =
-            pathLength * adjustedProgress - segmentLength / 2;
-          gsap.to(path, {
-            strokeDashoffset: pathLength - progressPosition,
-            stroke: '#EE4503',
-            ease: 'none',
           });
         },
       },

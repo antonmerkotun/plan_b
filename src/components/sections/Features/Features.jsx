@@ -94,7 +94,15 @@ const Features = () => {
       </div>
       <div className={styles.center}>
         {FEATURES.map((card, index) => (
-          <div key={card.title} className={styles.point}>
+          <div
+            key={card.title}
+            className={styles.point}
+            onClick={() => {
+              if (window.innerWidth > 1024) return;
+              setActiveIndex(index);
+              swiperRef.current?.slideTo(index);
+            }}
+          >
             <span
               className={`${styles.pointTitle} ${index === activeIndex ? styles.activeTitle : ''}`}
             >
