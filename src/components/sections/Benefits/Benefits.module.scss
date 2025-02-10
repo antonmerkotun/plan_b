@@ -147,6 +147,10 @@
           color: #020011;
           font-family: 'Whyte Inktrap', serif;
           font-size: 56px;
+          line-height: 1; /* Забезпечує правильне вертикальне вирівнювання */
+          display: inline-block;
+          text-align: center;
+          vertical-align: middle;
           //margin: auto;
           //line-height: 180%;
           //height: 100%;
