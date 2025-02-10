@@ -140,17 +140,13 @@
         align-items: center;
         width: 80px;
         height: 80px;
+        margin: auto auto 0;
         position: relative;
 
         .number {
           color: #020011;
           font-family: 'Whyte Inktrap', serif;
           font-size: 56px;
-          line-height: 2;
-          display: inline-block;
-          text-align: center;
-          vertical-align: middle;
-          z-index: 20;
           margin-top: 20px;
         }
 
@@ -335,7 +331,24 @@
         }
 
         .counter {
-          margin: 0;
+          //display: flex;
+          //justify-content: center;
+          //align-items: center;
+          //width: 80px;
+          //height: 80px;
+          //position: relative;
+
+          .number {
+            color: #020011;
+            font-family: 'Whyte Inktrap', serif;
+            font-size: 56px;
+            line-height: 2;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            z-index: 20;
+            margin-top: 20px;
+          }
         }
       }
     }
