@@ -193,22 +193,22 @@ const Benefits = () => {
             isDisabled={activeIndexCard === 0}
           />
           <div className={styles.counter}>
-            {/*<ReactSVG*/}
-            {/*  className={`${styles.border} ${styles.borderLeftTop}`}*/}
-            {/*  src={borderCounter}*/}
-            {/*/>*/}
-            {/*<ReactSVG*/}
-            {/*  className={`${styles.border} ${styles.borderLeftBottom}`}*/}
-            {/*  src={borderCounter}*/}
-            {/*/>*/}
-            {/*<ReactSVG*/}
-            {/*  className={`${styles.border} ${styles.borderRightTop}`}*/}
-            {/*  src={borderCounter}*/}
-            {/*/>*/}
-            {/*<ReactSVG*/}
-            {/*  className={`${styles.border} ${styles.borderRightBottom}`}*/}
-            {/*  src={borderCounter}*/}
-            {/*/>*/}
+            <ReactSVG
+              className={`${styles.border} ${styles.borderLeftTop}`}
+              src={borderCounter}
+            />
+            <ReactSVG
+              className={`${styles.border} ${styles.borderLeftBottom}`}
+              src={borderCounter}
+            />
+            <ReactSVG
+              className={`${styles.border} ${styles.borderRightTop}`}
+              src={borderCounter}
+            />
+            <ReactSVG
+              className={`${styles.border} ${styles.borderRightBottom}`}
+              src={borderCounter}
+            />
             <p className={styles.number}>0{activeIndexCard + 1}</p>
           </div>
           <Button
