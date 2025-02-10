@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { ReactSVG } from 'react-svg';
 import { useModal } from '@/context/ModalContext.jsx';
-import styles from '@/components/ui/Forms/Community/Community.module.scss';
 import Button from '@/components/ui/Button/Button.jsx';
+import closeIcon from '@/assets/icons/x-cirlce.svg';
+import styles from '@/components/ui/Forms/Community/Community.module.scss';
 
 const interests = [
   'DeFi',
@@ -56,7 +58,10 @@ const Community = () => {
         onSubmit={handleSubmit}
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className={styles.title}>Join to the community</h2>
+        <div className={styles.top}>
+          <h2 className={styles.title}>Join to the community</h2>
+          <ReactSVG src={closeIcon} onClick={closeModal} />
+        </div>
         <div>
           <div className={styles.section}>
             <h4 className={styles.sectionTitle}>Main information</h4>
