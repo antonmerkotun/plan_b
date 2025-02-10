@@ -273,7 +273,7 @@
       justify-content: center;
       top: 100px;
       bottom: 0;
-      left: 0;
+      left: -13px;
       right: 0;
       z-index: -1;
     }
@@ -385,6 +385,7 @@
         width: 190px;
         height: 190px;
         z-index: 10;
+        border-radius: 20px;
 
         & > div {
           width: 100%;
@@ -417,6 +418,7 @@
         display: block;
         position: absolute;
         top: 75px;
+        margin-right: 18px;
       }
     }
 
