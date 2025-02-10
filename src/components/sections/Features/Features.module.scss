@@ -478,14 +478,14 @@
 
     .center {
       max-height: 314px;
-      margin: -50px auto 0;
+      margin: 0;
 
       .point {
         z-index: 1;
 
         &:nth-child(1) {
           top: 84px;
-          left: 38px;
+          left: 30px;
 
           .line {
             top: 23px;
@@ -499,7 +499,7 @@
 
         &:nth-child(2) {
           bottom: 0;
-          left: 25px;
+          left: 10px;
 
           .line {
             transform: scaleY(-1);
@@ -529,7 +529,7 @@
 
         &:nth-child(4) {
           top: 150px;
-          right: 25px;
+          right: 10px;
 
           .line {
             transform: scaleX(-1);
@@ -600,6 +600,11 @@
             color: #020011;
             font-family: 'Whyte Inktrap', serif;
             font-size: 56px;
+            line-height: 2;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            z-index: 20;
             margin-top: 20px;
           }
 
