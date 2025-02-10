@@ -13,19 +13,25 @@ export const Keyboard = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const handleClick = () => {
+    setTimeout(() => {
+      openModal();
+    }, 200);
+  };
+
   return (
     <>
       {isMobile ? (
         <Spline
           className={styles.keyboard}
           scene="https://prod.spline.design/mUqk5oKMvZTFKyhu/scene.splinecode"
-          onClick={openModal}
+          onClick={handleClick}
         />
       ) : (
         <Spline
           className={styles.keyboard}
           scene="https://prod.spline.design/HUDVOxwlJcKGGiOG/scene.splinecode"
-          onClick={openModal}
+          onClick={handleClick}
         />
       )}
     </>

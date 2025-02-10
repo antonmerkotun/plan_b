@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { ReactSVG } from 'react-svg';
 import { useModal } from '@/context/ModalContext.jsx';
 import Button from '@/components/ui/Button/Button.jsx';
-import closeIcon from '@/assets/icons/x-cirlce.svg';
 import styles from '@/components/ui/Forms/Community/Community.module.scss';
 
 const interests = [
@@ -60,11 +58,9 @@ const Community = () => {
       >
         <div className={styles.top}>
           <h2 className={styles.title}>Join to the community</h2>
-          <ReactSVG
-            src={closeIcon}
-            className={styles.closeIcon}
-            onClick={closeModal}
-          />
+          <span className={styles.closeIcon} onClick={closeModal}>
+            X
+          </span>
         </div>
         <div>
           <div className={styles.section}>

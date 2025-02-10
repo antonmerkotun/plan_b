@@ -187,7 +187,8 @@
 @media (max-width: 768px) {
   .card {
     width: 100%;
-    max-width: 358px;
+    max-width: 360px;
+    min-width: 360px;
     height: 254px;
     padding: 16px 24px 40px;
     background-position: center;

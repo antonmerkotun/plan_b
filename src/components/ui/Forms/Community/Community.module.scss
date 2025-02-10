@@ -15,7 +15,7 @@
 
 .communityForm {
   width: 727px;
-  padding: 56px;
+  padding: 36px;
   border-radius: 8px 32px;
   border: 1px solid #d9d9d9;
   background: #f3f3f3;
@@ -23,7 +23,7 @@
   z-index: 100;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 24px;
   opacity: 0;
   transform: scale(0.95);
   animation: fadeInUp 0.6s ease-out forwards;
