@@ -83,18 +83,6 @@ const Header = () => {
                   ))}
                 </ul>
               )}
-              {/*<ul className={styles.headerSubmenu}>*/}
-              {/*  {item.subMenu.map((subItem, subIndex) => (*/}
-              {/*    <li key={subIndex} className={styles.headerSubmenuItem}>*/}
-              {/*      <a*/}
-              {/*        href={subItem.link}*/}
-              {/*        className={styles.headerSubmenuItemLink}*/}
-              {/*      >*/}
-              {/*        {subItem.name}*/}
-              {/*      </a>*/}
-              {/*    </li>*/}
-              {/*  ))}*/}
-              {/*</ul>*/}
             </li>
           ))}
         </ul>
