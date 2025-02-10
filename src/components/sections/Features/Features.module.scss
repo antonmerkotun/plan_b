@@ -41,6 +41,8 @@
 
   .center {
     position: relative;
+    max-width: 700px;
+    max-height: 850px;
 
     .point {
       position: absolute;
@@ -478,6 +480,7 @@
 
     .center {
       max-height: 314px;
+      max-width: 300px;
       margin: 0;
 
       .point {
@@ -485,7 +488,7 @@
 
         &:nth-child(1) {
           top: 84px;
-          left: 30px;
+          left: 0;
 
           .line {
             top: 23px;
@@ -499,7 +502,7 @@
 
         &:nth-child(2) {
           bottom: 0;
-          left: 10px;
+          left: -20px;
 
           .line {
             transform: scaleY(-1);
@@ -514,7 +517,7 @@
 
         &:nth-child(3) {
           bottom: -70px;
-          right: 65px;
+          right: 0;
 
           .line {
             transform: scaleX(-1) scaleY(-1);
@@ -529,7 +532,7 @@
 
         &:nth-child(4) {
           top: 150px;
-          right: 10px;
+          right: -20px;
 
           .line {
             transform: scaleX(-1);

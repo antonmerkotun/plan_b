@@ -97,7 +97,15 @@ const WhoIsItFor = () => {
       </div>
       <div className={styles.center}>
         {WHOISITFOR.map((card, index) => (
-          <div key={card.title} className={styles.point}>
+          <div
+            key={card.title}
+            className={styles.point}
+            onClick={() => {
+              if (window.innerWidth > 1024) return;
+              setActiveIndex(index);
+              swiperRef.current?.slideTo(index);
+            }}
+          >
             <ReactSVG
               className={`${styles.icon} ${index === activeIndex ? styles.iconActive : ''}`}
               src={circle}
