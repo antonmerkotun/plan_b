@@ -135,21 +135,21 @@
       }
 
       .counter {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80px;
-        height: 80px;
-        margin: auto auto 0;
-        position: relative;
+        //display: flex;
+        //justify-content: center;
+        //align-items: center;
+        //width: 80px;
+        //height: 80px;
+        //margin: auto auto 0;
+        //position: relative;
 
         .number {
           color: #020011;
           font-family: 'Whyte Inktrap', serif;
           font-size: 56px;
-          margin: auto;
+          //margin: auto;
           //line-height: 180%;
-          height: 100%;
+          //height: 100%;
           z-index: 20;
         }
 
