@@ -95,8 +95,8 @@ const WhoIsItFor = () => {
       const arrow = arrowRef.current.children[0].children[0];
 
       gsap.to(arrow, {
-        rotation: -activeIndex * 30, // Кут обертання в залежності від індексу
-        duration: 0.5, // Гладка анімація
+        rotation: -activeIndex * 30,
+        duration: 0.5,
         ease: 'power1.out',
       });
     }

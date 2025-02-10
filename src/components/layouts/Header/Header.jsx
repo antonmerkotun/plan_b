@@ -60,13 +60,15 @@ const Header = () => {
                 handleMenuClick(index);
               }}
             >
-              <span>{item.name}</span>
-              {item.subMenu && (
-                <ReactSVG
-                  src={chevronDown}
-                  className={styles.headerMenuItemIcon}
-                />
-              )}
+              <div className={styles.itemTitle}>
+                <span>{item.name}</span>
+                {item.subMenu && (
+                  <ReactSVG
+                    src={chevronDown}
+                    className={styles.headerMenuItemIcon}
+                  />
+                )}
+              </div>
               {item.subMenu && openMenuIndex === index && (
                 <ul className={styles.headerSubmenu}>
                   {item.subMenu.map((subItem, subIndex) => (
@@ -81,6 +83,18 @@ const Header = () => {
                   ))}
                 </ul>
               )}
+              {/*<ul className={styles.headerSubmenu}>*/}
+              {/*  {item.subMenu.map((subItem, subIndex) => (*/}
+              {/*    <li key={subIndex} className={styles.headerSubmenuItem}>*/}
+              {/*      <a*/}
+              {/*        href={subItem.link}*/}
+              {/*        className={styles.headerSubmenuItemLink}*/}
+              {/*      >*/}
+              {/*        {subItem.name}*/}
+              {/*      </a>*/}
+              {/*    </li>*/}
+              {/*  ))}*/}
+              {/*</ul>*/}
             </li>
           ))}
         </ul>

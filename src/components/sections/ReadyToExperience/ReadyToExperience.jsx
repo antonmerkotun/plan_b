@@ -18,7 +18,9 @@ const ReadyToExperience = () => {
       <ReactSVG className={styles.bitcoin} src={bitcoin} />
       <ReactSVG className={styles.unionLeft} src={unionLeft} />
       <ReactSVG className={styles.unionRight} src={unionRight} />
-      <Keyboard />
+      <div className={styles.keyboard}>
+        <Keyboard />
+      </div>
     </section>
   );
 };

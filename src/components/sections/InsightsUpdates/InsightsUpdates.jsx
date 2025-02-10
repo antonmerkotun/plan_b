@@ -33,7 +33,7 @@ const InsightsUpdates = () => {
           observer={true}
           observeParents={true}
           centeredSlides={true}
-          // loop={true}
+          loop={true}
           slidesPerView={'auto'}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           allowTouchMove={false}
@@ -53,7 +53,7 @@ const InsightsUpdates = () => {
           {INSIGHTSUPDATES.map((card, index) => (
             <SwiperSlide
               key={index}
-              className={`${styles.slide} ${activeIndex === index ? styles.slideActive : styles.slideDeactive}`}
+              className={`insights-updates-slide ${styles.slide} ${activeIndex === index ? styles.slideActive : styles.slideDeactive}`}
             >
               <InsightsUpdatesCard card={card} />
             </SwiperSlide>

@@ -33,6 +33,7 @@ const Benefits = () => {
     gsap.set(content, {
       x: 0,
       opacity: 1,
+      duration: 1,
     });
 
     const trigger = gsap.to(content, {
@@ -55,11 +56,11 @@ const Benefits = () => {
           setActiveIndexCard(activeIndex);
 
           content.forEach((card, index) => {
-            if (index < activeIndex) {
-              gsap.set(card, { opacity: 0, duration: 1 });
-            } else {
-              gsap.set(card, { opacity: 1, duration: 1 });
-            }
+            gsap.to(card, {
+              opacity: index < activeIndex ? 0 : 1,
+              duration: 0.5, // Робить зникнення плавним
+              ease: 'power2.out',
+            });
           });
         },
       },

@@ -29,6 +29,7 @@
   &MenuItem {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     gap: 8px;
     color: #020011;
@@ -59,6 +60,12 @@
       width: 14px;
       transition: transform 0.3s ease;
     }
+  }
+
+  .itemTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   &Submenu {
@@ -168,6 +175,11 @@
 @media (max-width: 768px) {
   .header {
     justify-content: end;
+
+    &Submenu {
+      display: flex;
+      position: relative;
+    }
 
     &Logo {
       & > div > svg {

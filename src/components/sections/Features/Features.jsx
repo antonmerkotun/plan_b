@@ -110,7 +110,9 @@ const Features = () => {
             />
           </div>
         ))}
-        <EnergyLiquid />
+        <div className={styles.energyLiquid}>
+          <EnergyLiquid />
+        </div>
       </div>
       <div ref={contentRef} className={styles.list}>
         {FEATURES.map((card, index) => (

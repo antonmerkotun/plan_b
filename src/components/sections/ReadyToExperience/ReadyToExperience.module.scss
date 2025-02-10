@@ -59,6 +59,12 @@
     bottom: 56px;
     right: 64px;
   }
+
+  .keyboard {
+    margin: 62px auto 0;
+    width: max-content;
+    height: max-content;
+  }
 }
 
 @media (max-width: 768px) {
@@ -91,6 +97,10 @@
         width: 149px;
         height: 48px;
       }
+    }
+
+    .keyboard {
+      margin-top: 200px;
     }
   }
 }
