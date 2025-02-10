@@ -272,34 +272,35 @@
       }
 
       .description {
+        max-width: 358px;
       }
     }
 
     .center {
+      width: 320px;
       min-height: 320px;
-      width: 300px;
 
       .point {
         gap: 0;
 
         &:nth-child(1) {
-          top: 170px;
-          left: 0;
+          top: 125px;
+          left: -10px;
         }
 
         &:nth-child(2) {
-          top: 200px;
+          top: 170px;
           left: 70px;
         }
 
         &:nth-child(3) {
-          top: 200px;
+          top: 170px;
           right: 70px;
         }
 
         &:nth-child(4) {
-          top: 170px;
-          right: 0;
+          top: 125px;
+          right: -10px;
         }
 
         .icon {
@@ -337,7 +338,7 @@
 
     .layerTablet {
       & > div > svg {
-        width: 350px;
+        max-width: 320px;
         height: 400px;
       }
     }
