@@ -47,15 +47,15 @@ const Cube = () => {
         ))}
       </div>
 
-      <Link
-        to="benefits-section"
-        smooth={true}
-        offset={0}
-        duration={500}
-        className={styles.buttonMobile}
-      >
-        <ReactSVG src={buttonScroll} />
-      </Link>
+      {/*<Link*/}
+      {/*  to="benefits-section"*/}
+      {/*  smooth={true}*/}
+      {/*  offset={0}*/}
+      {/*  duration={500}*/}
+      {/*  className={styles.buttonMobile}*/}
+      {/*>*/}
+      {/*  <ReactSVG src={buttonScroll} />*/}
+      {/*</Link>*/}
       <Navigation />
       <div className={styles.socialMedia}>
         <SocialMedia />

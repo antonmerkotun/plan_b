@@ -60,7 +60,11 @@ const Community = () => {
       >
         <div className={styles.top}>
           <h2 className={styles.title}>Join to the community</h2>
-          <ReactSVG src={closeIcon} onClick={closeModal} />
+          <ReactSVG
+            src={closeIcon}
+            className={styles.closeIcon}
+            onClick={closeModal}
+          />
         </div>
         <div>
           <div className={styles.section}>
