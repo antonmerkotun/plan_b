@@ -52,7 +52,7 @@
 
     &Bg {
       position: absolute;
-      top: -23px;
+      top: -22px;
       left: 0;
       z-index: -1;
       width: 100%;
@@ -269,9 +269,17 @@
 
     &Small {
       .question {
+        //height: 60px;
       }
 
       &Bg {
+        //height: 23px;
+        height: auto;
+        top: -21px;
+
+        & > div > svg {
+          height: 23px;
+        }
       }
 
       &Active {

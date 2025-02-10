@@ -69,6 +69,9 @@
 
 @media (max-width: 768px) {
   .section {
+    height: 100%;
+    padding: 56px 0;
+
     .text {
       .title {
         font-size: 20px;
@@ -100,7 +103,8 @@
     }
 
     .keyboard {
-      margin-top: 150px;
+      //margin-top: 150px;
+      margin: 100px auto;
     }
   }
 }
