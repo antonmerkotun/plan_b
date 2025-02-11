@@ -169,7 +169,7 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 120px 12px 0;
+    padding: 140px 12px 0;
     display: flex;
     flex-direction: column;
 
@@ -197,7 +197,7 @@
       order: 1;
 
       .cube {
-        top: 5%;
+        top: 15%;
       }
 
       .title {
@@ -206,7 +206,7 @@
 
       .bitcoin {
         position: absolute;
-        top: 15%;
+        top: 25%;
         z-index: -2;
         left: 0;
         right: 0;
