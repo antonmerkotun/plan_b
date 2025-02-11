@@ -14,7 +14,7 @@ const TermsAndConditions = () => {
           </span>
         </div>
         <div>
-          <ul>
+          <ul className={styles.content}>
             <li>
               <span className={styles.name}>Introduction</span>
               <p className={styles.subTitle}>

@@ -84,7 +84,8 @@ const HowItWorks = () => {
           <ReactSVG src={ellipse} className={styles.ellipseTopRightSmall} />
         </div>
         <div className={styles.sliderMobile}>
-          <ReactSVG src={sliderMobile} />
+          <img src={slider} alt="image" />
+          {/*<ReactSVG src={sliderMobile} />*/}
         </div>
         <div className={styles.swiper}>
           <Swiper

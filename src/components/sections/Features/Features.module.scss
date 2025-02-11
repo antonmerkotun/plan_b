@@ -43,6 +43,8 @@
     position: relative;
     max-width: 700px;
     max-height: 850px;
+    margin: 0 auto;
+    min-width: 654px;
 
     .point {
       position: absolute;
@@ -283,6 +285,7 @@
     .center {
       max-height: 407px;
       max-width: 560px;
+      min-width: 400px;
       margin: 56px auto 0;
 
       .point {
@@ -482,6 +485,7 @@
       max-height: 314px;
       max-width: 300px;
       margin: 0 auto;
+      min-width: auto;
 
       .point {
         z-index: 1;

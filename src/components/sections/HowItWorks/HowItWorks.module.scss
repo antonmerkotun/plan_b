@@ -506,8 +506,13 @@
       .sliderMobile {
         display: block;
         position: absolute;
-        top: 75px;
+        top: 61px;
         margin-right: 18px;
+        margin-left: 22px;
+
+        & > img {
+          height: 377px;
+        }
       }
     }
 

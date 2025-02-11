@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { useModal } from '@/context/ModalContext.jsx';
-import Button from '@/components/ui/Button/Button.jsx';
 import styles from '@/components/ui/Forms/PrivacyPolicy/PrivacyPolicy.module.scss';
 
 const PrivacyPolicy = () => {
@@ -16,7 +14,7 @@ const PrivacyPolicy = () => {
           </span>
         </div>
         <div>
-          <ul>
+          <ul className={styles.content}>
             <li>
               <span className={styles.name}>Introduction</span>
               <p className={styles.subTitle}>
