@@ -49,8 +49,8 @@ export const MENU = [
         link: '/documentation',
       },
       {
-        name: 'TON Research',
-        link: '/ton-research',
+        name: 'Research',
+        link: '/research',
       },
       {
         name: 'Bug Bounty',

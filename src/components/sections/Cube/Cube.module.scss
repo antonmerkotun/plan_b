@@ -61,6 +61,10 @@
 
     .button {
       cursor: pointer;
+      position: absolute;
+      bottom: -21px;
+      left: 0;
+      right: 0;
 
       & > div {
         display: flex;
