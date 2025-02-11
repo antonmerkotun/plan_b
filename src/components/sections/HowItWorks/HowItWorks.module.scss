@@ -222,7 +222,8 @@
       height: 283px;
       background-color: white;
       border-radius: 28px;
-      margin-top: 103px;
+      margin-top: 126px;
+      margin-right: 29px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -269,6 +270,7 @@
     .slider {
       position: absolute;
       width: 100%;
+      height: 570px;
       display: flex;
       justify-content: center;
       top: 100px;
@@ -276,6 +278,92 @@
       left: -13px;
       right: 0;
       z-index: -1;
+
+      .ellipse {
+        &TopLeft {
+          position: absolute;
+          left: 20%;
+          top: 3px;
+          animation: floatUpDown 1s ease-in-out infinite alternate;
+
+          &Small {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            animation: floatUpDown 300ms ease-in-out infinite alternate;
+
+            & > div > svg {
+              width: 10px;
+            }
+          }
+        }
+
+        &BottomLeft {
+          position: absolute;
+          left: -10%;
+          bottom: 3px;
+          animation: floatUpDown 1s ease-in-out infinite alternate;
+
+          & > div > svg {
+            width: 10px;
+          }
+
+          &Small {
+            position: absolute;
+            left: 10%;
+            bottom: 5px;
+            animation: floatUpDown 300ms ease-in-out infinite alternate;
+
+            & > div > svg {
+              width: 10px;
+            }
+          }
+        }
+
+        &BottomRight {
+          position: absolute;
+          right: -30%;
+          bottom: 3px;
+          animation: floatUpDown 1s ease-in-out infinite alternate;
+
+          & > div > svg {
+            width: 20px;
+          }
+
+          &Small {
+            position: absolute;
+            right: -10%;
+            bottom: 5px;
+            animation: floatUpDown 300ms ease-in-out infinite alternate;
+
+            & > div > svg {
+              width: 15px;
+            }
+          }
+        }
+
+        &TopRight {
+          position: absolute;
+          right: -30%;
+          top: 3px;
+          animation: floatUpDown 1s ease-in-out infinite alternate;
+
+          & > div > svg {
+            width: 10px;
+          }
+
+          &Small {
+            position: absolute;
+            right: -10%;
+            top: 5px;
+            animation: floatUpDown 300ms ease-in-out infinite alternate;
+
+            & > div > svg {
+              width: 10px;
+            }
+          }
+        }
+      }
     }
 
     .sliderMobile {
@@ -448,5 +536,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(4px);
   }
 }

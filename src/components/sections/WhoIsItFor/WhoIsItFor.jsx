@@ -17,10 +17,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const WhoIsItFor = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const isTabletScreen = useMediaQuery({ maxWidth: 1024 });
+  const isTabletScreen = useMediaQuery({ maxWidth: 768 });
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
-  const progressPathRef = useRef(null);
   const arrowRef = useRef(null);
   const swiperRef = useRef(null);
 
@@ -137,7 +136,7 @@ const WhoIsItFor = () => {
           speed={500}
           slidesPerView="auto"
           centeredSlides={true}
-          spaceBetween={isTabletScreen ? 80 : 16}
+          spaceBetween={isTabletScreen ? 16 : 80}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         >

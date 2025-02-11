@@ -3,9 +3,10 @@ import { ReactSVG } from 'react-svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Button from '@/components/ui/Button/Button.jsx';
 import { HOWITWORKS } from '@/data/how-it-works.js';
-import sliderSvg from '@/assets/icons/slider.svg';
+import slider from '@/assets/images/how-it-works-slider.png';
 import sliderMobile from '@/assets/icons/slider-mobile.svg';
 import borderCounter from '@/assets/icons/top-left.svg';
+import ellipse from '@/assets/icons/ellipse.svg';
 import styles from '@/components/sections/HowItWorks/HowItWorks.module.scss';
 
 const HowItWorks = () => {
@@ -72,7 +73,16 @@ const HowItWorks = () => {
           ))}
         </div>
         <div className={styles.slider}>
-          <ReactSVG src={sliderSvg} />
+          {/*<ReactSVG src={sliderSvg} />*/}
+          <img src={slider} alt="image" />
+          <ReactSVG src={ellipse} className={styles.ellipseTopLeft} />
+          <ReactSVG src={ellipse} className={styles.ellipseTopLeftSmall} />
+          <ReactSVG src={ellipse} className={styles.ellipseBottomLeft} />
+          <ReactSVG src={ellipse} className={styles.ellipseBottomLeftSmall} />
+          <ReactSVG src={ellipse} className={styles.ellipseBottomRight} />
+          <ReactSVG src={ellipse} className={styles.ellipseBottomRightSmall} />
+          <ReactSVG src={ellipse} className={styles.ellipseTopRight} />
+          <ReactSVG src={ellipse} className={styles.ellipseTopRightSmall} />
         </div>
         <div className={styles.sliderMobile}>
           <ReactSVG src={sliderMobile} />

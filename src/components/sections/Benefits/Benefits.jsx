@@ -58,7 +58,7 @@ const Benefits = () => {
           content.forEach((card, index) => {
             gsap.to(card, {
               opacity: index < activeIndex ? 0 : 1,
-              duration: 0.5, // Робить зникнення плавним
+              duration: 0.8,
               ease: 'power2.out',
             });
           });
@@ -91,22 +91,15 @@ const Benefits = () => {
 
   const handleTabClick = (index) => {
     if (activeIndexTab === index) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    const distanceToTop = rect.top + window.scrollY;
 
-    // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    // gsap.killTweensOf(contentRef.current);
+    if (sectionRef.current) {
+      sectionRef.current.scrollTop = 0; // Прокрутка контейнера до верху
+    }
 
-    // const rect = sectionRef.current.getBoundingClientRect();
-    // const distanceToTop = rect.top + window.scrollY;
-    //
-    // window.scrollBy({
-    //   top: 6000,
-    //   behavior: 'smooth',
-    // });
-    //
-    // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    //
-    setActiveIndexTab(index);
-    setActiveIndexCard(0);
+    // setActiveIndexTab(index);
+    // setActiveIndexCard(0);
   };
 
   return (

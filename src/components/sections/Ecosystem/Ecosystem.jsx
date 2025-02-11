@@ -16,12 +16,12 @@ const Ecosystem = () => {
       </div>
 
       <div className={styles.image}>
-        <img src="src/assets/images/ecosystem.png" alt="imege" width="979" />
+        <img src="src/assets/images/ecosystem.png" alt="image" width="979" />
       </div>
       <div className={styles.imageMobile}>
         <img
           src="src/assets/images/ecosystem-mobile.png"
-          alt="imege"
+          alt="image"
           width="358"
         />
       </div>

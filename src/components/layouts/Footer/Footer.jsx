@@ -21,21 +21,6 @@ const Footer = () => {
             justifyContent: 'start',
           }}
         />
-        <div className={styles.contentMobile}>
-          <h3 className={styles.title}>Subscribe to our newsletters!</h3>
-          <div className={styles.field}>
-            <input
-              className={styles.input}
-              type="email"
-              placeholder="Your email"
-            />
-            <Button
-              icon={envelope}
-              type={'primary'}
-              className={styles.button}
-            />
-          </div>
-        </div>
       </div>
       <div className={styles.navigation}>
         {MENU.map((menuItem, index) => (
