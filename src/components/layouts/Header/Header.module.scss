@@ -177,9 +177,41 @@
     height: 55px;
     justify-content: end;
 
+    &Nav {
+      top: 50px;
+    }
+
+    &MenuItem {
+      &Active {
+        text-decoration-color: transparent !important;
+
+        .itemTitle > span {
+          text-decoration: underline;
+          text-decoration-color: #ee4503;
+        }
+      }
+    }
+
     &Submenu {
       display: flex;
       position: relative;
+
+      &Item {
+        font-size: 16px;
+        color: #1f1f1f;
+        text-decoration-color: transparent !important;
+
+        &Link {
+          color: inherit;
+          text-decoration-thickness: 2px;
+          text-decoration-color: transparent;
+          transition: all 0.3s ease-in-out;
+
+          &Active {
+            text-decoration-color: transparent;
+          }
+        }
+      }
     }
 
     &Logo {

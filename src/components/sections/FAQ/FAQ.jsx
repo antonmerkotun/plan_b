@@ -16,28 +16,24 @@ const FAQ = () => {
   const swiperRef = useRef();
 
   const handleNext = () => {
+    if (isFading || activeIndex >= FAQS.length - 1) return;
     setIsFading(true);
-    setTimeout(() => {
-      setActiveIndex((prev) => prev + 1);
-      setIsFading(false);
-    }, 300);
+    setActiveIndex((prev) => prev + 1);
+    setTimeout(() => setIsFading(false), 300);
   };
 
   const handlePrev = () => {
+    if (isFading || activeIndex <= 0) return;
     setIsFading(true);
-    setTimeout(() => {
-      setActiveIndex((prev) => prev - 1);
-      setIsFading(false);
-    }, 300);
+    setActiveIndex((prev) => prev - 1);
+    setTimeout(() => setIsFading(false), 300);
   };
 
   const handleCardClick = (index) => {
+    if (isFading || index === activeIndex) return;
     setIsFading(true);
-    if (index === activeIndex) return;
-    setTimeout(() => {
-      setActiveIndex(index);
-      setIsFading(false);
-    }, 300);
+    setActiveIndex(index);
+    setTimeout(() => setIsFading(false), 300);
   };
 
   return (

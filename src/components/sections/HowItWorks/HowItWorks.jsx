@@ -73,7 +73,6 @@ const HowItWorks = () => {
           ))}
         </div>
         <div className={styles.slider}>
-          {/*<ReactSVG src={sliderSvg} />*/}
           <img src={slider} alt="image" />
           <ReactSVG src={ellipse} className={styles.ellipseTopLeft} />
           <ReactSVG src={ellipse} className={styles.ellipseTopLeftSmall} />
