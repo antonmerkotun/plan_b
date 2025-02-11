@@ -174,6 +174,7 @@
 
 @media (max-width: 768px) {
   .header {
+    height: 55px;
     justify-content: end;
 
     &Submenu {
@@ -183,14 +184,14 @@
 
     &Logo {
       & > div > svg {
-        width: 127px;
-        height: 40px;
+        width: 120px;
+        height: 38px;
       }
 
       &::before {
         content: '';
         position: absolute;
-        bottom: -30px;
+        bottom: -16px;
         left: 50%;
         transform: translateX(-50%);
         width: 220px;
