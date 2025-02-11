@@ -9,7 +9,7 @@ import 'swiper/css';
 
 import BenefitsCard from '@/components/blocks/BenefitsCard/BenefitsCard.jsx';
 import Button from '@/components/ui/Button/Button.jsx';
-import { SLIDES } from '@/data/benefits.js';
+import { SLIDES, SLIDESGSAP } from '@/data/benefits.js';
 import borderCounter from '@/assets/icons/top-left.svg';
 import arrow from '@/assets/icons/arrow-white.svg';
 import styles from '@/components/sections/Benefits/Benefits.module.scss';
@@ -45,7 +45,7 @@ const Benefits = () => {
       ease: 'none',
       scrollTrigger: {
         trigger: section,
-        pin: true,
+        pin: section,
         scrub: 1,
         start: 'top+=5 top',
         end: `+=${(cardWidth + gap) * content.length + 2000}`,
@@ -73,7 +73,7 @@ const Benefits = () => {
     return () => {
       triggerRef.current.kill();
     };
-  }, [activeIndexTab]);
+  }, []);
 
   const handleArrowClick = (direction) => {
     const content = gsap.utils.toArray(contentRef.current.children);
@@ -95,18 +95,12 @@ const Benefits = () => {
 
   const handleTabClick = (index) => {
     if (activeIndexTab === index) return;
-    const rect = sectionRef.current.getBoundingClientRect();
-
-    if (sectionRef.current) {
-      gsap.to(window, {
-        scrollTo: sectionRef.current,
-        duration: 0,
-        ease: 'power2.inOut',
-      });
-    }
 
     setActiveIndexTab(index);
-    setActiveIndexCard(0);
+
+    if (window.innerWidth <= 768) {
+      setActiveIndexCard(0);
+    }
   };
 
   return (
@@ -151,11 +145,11 @@ const Benefits = () => {
         </div>
 
         <div ref={contentRef} className={styles.list}>
-          {SLIDES[activeIndexTab].items.map((card, index) => (
+          {SLIDESGSAP.map((card, index) => (
             <BenefitsCard
-              key={card.name}
+              key={index}
               className={styles.card}
-              card={card}
+              card={card[activeIndexTab]}
               isActive={activeIndexCard === index}
             />
           ))}
