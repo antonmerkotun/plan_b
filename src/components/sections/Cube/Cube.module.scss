@@ -186,7 +186,7 @@
       display: flex;
       justify-content: center;
       order: 4;
-      margin-bottom: 55px;
+      margin-bottom: 0;
 
       & > div {
         display: flex;
@@ -264,5 +264,13 @@
 
   .socialMedia {
     display: none;
+  }
+}
+
+@media (max-width: 490px) {
+  .section {
+    .buttonMobile {
+      margin-bottom: 55px;
+    }
   }
 }
