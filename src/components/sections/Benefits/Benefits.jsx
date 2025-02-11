@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { ReactSVG } from 'react-svg';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
 import 'swiper/css';
 
 import BenefitsCard from '@/components/blocks/BenefitsCard/BenefitsCard.jsx';
@@ -13,11 +15,13 @@ import arrow from '@/assets/icons/arrow-white.svg';
 import styles from '@/components/sections/Benefits/Benefits.module.scss';
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
 
 const Benefits = () => {
   const [activeIndexTab, setActiveIndexTab] = useState(0);
   const [activeIndexCard, setActiveIndexCard] = useState(0);
   const sectionRef = useRef(null);
+  const triggerRef = useRef(null);
   const contentRef = useRef(null);
   const infoRef = useRef(null);
   const swiperRef = useRef(null);
@@ -36,7 +40,7 @@ const Benefits = () => {
       duration: 1,
     });
 
-    const trigger = gsap.to(content, {
+    triggerRef.current = gsap.to(content, {
       x: () => `-=${(cardWidth + gap) * (content.length - 1)}`,
       ease: 'none',
       scrollTrigger: {
@@ -67,7 +71,7 @@ const Benefits = () => {
     });
 
     return () => {
-      trigger.kill();
+      triggerRef.current.kill();
     };
   }, [activeIndexTab]);
 
@@ -92,14 +96,17 @@ const Benefits = () => {
   const handleTabClick = (index) => {
     if (activeIndexTab === index) return;
     const rect = sectionRef.current.getBoundingClientRect();
-    const distanceToTop = rect.top + window.scrollY;
 
     if (sectionRef.current) {
-      sectionRef.current.scrollTop = 0; // Прокрутка контейнера до верху
+      gsap.to(window, {
+        scrollTo: sectionRef.current,
+        duration: 0,
+        ease: 'power2.inOut',
+      });
     }
 
-    // setActiveIndexTab(index);
-    // setActiveIndexCard(0);
+    setActiveIndexTab(index);
+    setActiveIndexCard(0);
   };
 
   return (

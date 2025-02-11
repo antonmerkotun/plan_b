@@ -43,6 +43,7 @@ const Navigation = () => {
 
     if (targetIndex >= 0 && targetIndex < sections.length) {
       const targetSection = sections[targetIndex];
+      console.log(targetSection);
       targetSection.scrollIntoView({
         behavior: 'smooth',
         block: 'start',

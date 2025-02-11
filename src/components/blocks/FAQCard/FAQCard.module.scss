@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    border-radius: 8px;
 
     .question {
       color: #ffffff;
@@ -114,7 +115,7 @@
 
 .cardBgTop {
   position: absolute;
-  top: -63px;
+  top: -58px;
   left: 0;
   z-index: -1;
   width: 100%;
@@ -131,7 +132,7 @@
 
 .cardBgBottom {
   position: absolute;
-  bottom: -34px;
+  bottom: -28px;
   left: 0;
   z-index: -1;
   width: 100%;
