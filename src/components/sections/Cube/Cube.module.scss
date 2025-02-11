@@ -1,6 +1,5 @@
 .section {
   position: relative;
-  //height: calc(100vh - 75px);
   height: 100vh;
   padding-top: 10%;
   display: grid;
@@ -75,7 +74,6 @@
 
   .list {
     display: none;
-    //display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     column-gap: 24px;
