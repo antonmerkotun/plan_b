@@ -2,12 +2,15 @@ import { ReactSVG } from 'react-svg';
 
 import Button from '@/components/ui/Button/Button';
 import SocialMedia from '@/components/ui/SocialMedia/SocialMedia';
+import { useModal } from '@/context/ModalContext.jsx';
 import { MENU } from '@/data/header.js';
 import envelope from '@/assets/icons/envelope.svg';
 import logo from '@/assets/icons/logo.svg';
 import styles from '@/components/layouts/Footer/Footer.module.scss';
 
 const Footer = () => {
+  const { openModal } = useModal();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.left}>
@@ -58,9 +61,13 @@ const Footer = () => {
         </div>
         <div className={styles.terms}>
           <div className={styles.links}>
-            <a href="#">Terms of Use</a>
+            <span onClick={() => openModal('termsAndConditions')}>
+              Terms of Use
+            </span>
             <span>|</span>
-            <a href="#">Privacy Policy</a>
+            <span onClick={() => openModal('privacyPolicy')}>
+              Privacy Policy
+            </span>
           </div>
           <h4 className={styles.copyright}>©Plan B 2025</h4>
         </div>

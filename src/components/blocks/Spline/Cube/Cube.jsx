@@ -17,12 +17,12 @@ const Cube = () => {
       {isMobile ? (
         <Spline
           className={styles.cube}
-          scene="https://prod.spline.design/Aq1i7EbpAcUKnSBX/scene.splinecode"
+          scene="https://prod.spline.design/giBkLdc6FzOi8hap/scene.splinecode"
         />
       ) : (
         <Spline
           className={styles.cube}
-          scene="https://prod.spline.design/Oz8n-SjZNJdpPGNu/scene.splinecode"
+          scene="https://prod.spline.design/lYohsDW92YxjJ02p/scene.splinecode"
         />
       )}
     </>

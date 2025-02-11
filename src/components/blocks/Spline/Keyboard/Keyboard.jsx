@@ -15,7 +15,7 @@ export const Keyboard = () => {
 
   const handleClick = () => {
     setTimeout(() => {
-      openModal();
+      openModal('community');
     }, 200);
   };
 
@@ -24,13 +24,13 @@ export const Keyboard = () => {
       {isMobile ? (
         <Spline
           className={styles.keyboard}
-          scene="https://prod.spline.design/mUqk5oKMvZTFKyhu/scene.splinecode"
+          scene="https://prod.spline.design/LmkxcIucC7FVhr3a/scene.splinecode"
           onClick={handleClick}
         />
       ) : (
         <Spline
           className={styles.keyboard}
-          scene="https://prod.spline.design/HUDVOxwlJcKGGiOG/scene.splinecode"
+          scene="https://prod.spline.design/kJDgjQTlYoVwMb4d/scene.splinecode"
           onClick={handleClick}
         />
       )}
