@@ -64,6 +64,12 @@ h3 {
     }
 }
 
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+}
+
 #insights-updates-section {
     .insights-updates-slide:not(.swiper-slide-active) {
         transform: scale(0.5) translateY(330px) !important;
