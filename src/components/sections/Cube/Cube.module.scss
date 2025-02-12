@@ -267,10 +267,12 @@
 
 @media (max-width: 490px) {
   .section {
-    height: 100svh;
+    height: 100vh;
+    min-height: 100svh;
+    max-height: 100dvh;
 
     .buttonMobile {
-      //margin-bottom: -24px;
+      margin-bottom: -24px;
     }
   }
 }
