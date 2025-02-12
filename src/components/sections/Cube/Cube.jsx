@@ -28,11 +28,11 @@ const Cube = () => {
   // Викликаємо adjustSectionHeight при завантаженні компонента та при зміні розміру вікна
   useEffect(() => {
     adjustSectionHeight();
-    window.addEventListener('resize', adjustSectionHeight);
+    // window.addEventListener('resize', adjustSectionHeight);
 
     // Очищаємо слухачів подій при розмонтажі компонента
     return () => {
-      window.removeEventListener('resize', adjustSectionHeight);
+      // window.removeEventListener('resize', adjustSectionHeight);
     };
   }, []);
 
