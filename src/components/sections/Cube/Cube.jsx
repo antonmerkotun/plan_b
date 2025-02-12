@@ -22,18 +22,11 @@ const Cube = () => {
   const adjustSectionHeight = () => {
     const section = sectionRef.current;
     const height = window.innerHeight;
-    section.style.height = `${height}px`; // Встановлюємо висоту секції на висоту вікна
+    section.style.height = `${height}px`;
   };
 
-  // Викликаємо adjustSectionHeight при завантаженні компонента та при зміні розміру вікна
   useEffect(() => {
     adjustSectionHeight();
-    // window.addEventListener('resize', adjustSectionHeight);
-
-    // Очищаємо слухачів подій при розмонтажі компонента
-    return () => {
-      // window.removeEventListener('resize', adjustSectionHeight);
-    };
   }, []);
 
   return (
