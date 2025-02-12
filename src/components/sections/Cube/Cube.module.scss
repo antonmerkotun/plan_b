@@ -267,8 +267,10 @@
 
 @media (max-width: 490px) {
   .section {
+    height: 100dvh;
+
     .buttonMobile {
-      margin-bottom: 55px;
+      //margin-bottom: 55px;
     }
   }
 }
