@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { ReactSVG } from 'react-svg';
 import { Link } from 'react-scroll';
 
@@ -18,6 +18,23 @@ const items = [
 
 const Cube = () => {
   const sectionRef = useRef(null);
+
+  const adjustSectionHeight = () => {
+    const section = sectionRef.current;
+    const height = window.innerHeight;
+    section.style.height = `${height}px`; // Встановлюємо висоту секції на висоту вікна
+  };
+
+  // Викликаємо adjustSectionHeight при завантаженні компонента та при зміні розміру вікна
+  useEffect(() => {
+    adjustSectionHeight();
+    window.addEventListener('resize', adjustSectionHeight);
+
+    // Очищаємо слухачів подій при розмонтажі компонента
+    return () => {
+      window.removeEventListener('resize', adjustSectionHeight);
+    };
+  }, []);
 
   return (
     <section id="cube-section" ref={sectionRef} className={styles.section}>
