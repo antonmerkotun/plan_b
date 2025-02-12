@@ -267,9 +267,10 @@
 
 @media (max-width: 490px) {
   .section {
-    height: 100%;
-    min-height: 100svh;
-    max-height: 100vh;
+    height: clamp(100svh, 100vh, 100dvh);
+    //height: 100svh;
+    //max-height: max-content;
+    //max-height: max-content;
 
     .buttonMobile {
       margin-bottom: -24px;
