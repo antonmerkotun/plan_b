@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { ReactSVG } from 'react-svg';
 import { Link } from 'react-scroll';
 
@@ -18,20 +18,6 @@ const items = [
 
 const Cube = () => {
   const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const updateHeight = () => {
-      document.documentElement.style.setProperty(
-        '--vh',
-        `${window.innerHeight}px`
-      );
-    };
-
-    updateHeight();
-    window.addEventListener('resize', updateHeight);
-
-    return () => window.removeEventListener('resize', updateHeight);
-  }, []);
 
   return (
     <section id="cube-section" ref={sectionRef} className={styles.section}>
