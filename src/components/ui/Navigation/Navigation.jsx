@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ReactSVG } from 'react-svg';
 
 import { SECTIONS } from '@/data/sections.js';

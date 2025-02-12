@@ -36,7 +36,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`${styles.header} container`}>
+    <header className={`${styles.header}`}>
       <button
         className={styles.burgerButton}
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -75,6 +75,7 @@ const Header = () => {
                     <li key={subIndex} className={styles.headerSubmenuItem}>
                       <a
                         href={subItem.link}
+                        target="_blank"
                         className={styles.headerSubmenuItemLink}
                       >
                         {subItem.name}

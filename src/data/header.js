@@ -4,11 +4,11 @@ export const MENU = [
     subMenu: [
       {
         name: 'Stake',
-        link: '/stake',
+        link: null,
       },
       {
         name: 'Apps',
-        link: '/apps',
+        link: null,
       },
     ],
   },
@@ -17,27 +17,27 @@ export const MENU = [
     subMenu: [
       {
         name: 'Taken Concept',
-        link: '/taken-concept',
+        link: null,
       },
       {
         name: 'Roadmap',
-        link: '/roadmap',
+        link: null,
       },
       {
         name: 'Chain Explorer',
-        link: '/chain-explorer',
+        link: null,
       },
       {
         name: 'History mining',
-        link: '/history-mining',
+        link: null,
       },
       {
         name: 'Validators',
-        link: '/validators',
+        link: null,
       },
       {
         name: 'White Paper',
-        link: '/white-paper',
+        link: 'https://plan-b.gitbook.io/docs/introduction/white-paper',
       },
     ],
   },
@@ -46,15 +46,15 @@ export const MENU = [
     subMenu: [
       {
         name: 'Documentation',
-        link: '/documentation',
+        link: 'https://plan-b.gitbook.io/docs',
       },
       {
         name: 'Research',
-        link: '/research',
+        link: null,
       },
       {
         name: 'Bug Bounty',
-        link: '/bug-bounty',
+        link: null,
       },
     ],
   },
@@ -63,11 +63,11 @@ export const MENU = [
     subMenu: [
       {
         name: 'Blog',
-        link: '/blog',
+        link: null,
       },
       {
         name: 'Communities',
-        link: '/communities',
+        link: null,
       },
     ],
   },

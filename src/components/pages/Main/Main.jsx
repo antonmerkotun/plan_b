@@ -14,7 +14,7 @@ const Main = () => {
   const sectionsRef = useAutoScrollToSection();
 
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} container`}>
       <div ref={(el) => (sectionsRef.current[0] = el)}>
         <Cube />
       </div>

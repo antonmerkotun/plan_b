@@ -41,3 +41,9 @@
     right: 12px;
   }
 }
+
+@media (min-width: 1440px) {
+  .main {
+    overflow: visible;
+  }
+}
